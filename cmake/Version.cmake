@@ -8,22 +8,28 @@ execute_process(
   ERROR_QUIET
 )
 
-if(GIT_DESCRIBE_VERSION)
-  set(DISPLAY_VERSION ${GIT_DESCRIBE_VERSION})
-  file(WRITE ${CMAKE_BINARY_DIR}/version.txt "${DISPLAY_VERSION}\n")
+if(GIT_DESCRIBE_VERSION AND NOT GIT_DESCRIBE_VERSION STREQUAL "")
+  set(DISPLAY_VERSION "${GIT_DESCRIBE_VERSION}")
+  file(WRITE "${CMAKE_BINARY_DIR}/version.txt" "${DISPLAY_VERSION}\n")
 else()
-  if(EXISTS ${CMAKE_BINARY_DIR}/version.txt)
-    file(READ ${CMAKE_BINARY_DIR}/version.txt DISPLAY_VERSION)
+  if(EXISTS "${CMAKE_BINARY_DIR}/version.txt")
+    file(READ "${CMAKE_BINARY_DIR}/version.txt" DISPLAY_VERSION)
     string(STRIP "${DISPLAY_VERSION}" DISPLAY_VERSION)
   else()
-    set(DISPLAY_VERSION ${PROJECT_VERSION})
+    set(DISPLAY_VERSION "${PROJECT_VERSION_BASE}")
   endif()
 endif()
 
+set(PROJECT_VERSION "${DISPLAY_VERSION}" CACHE INTERNAL "Project version")
+
+set(VERSION_HEADER "${CMAKE_BINARY_DIR}/include/Machinish/config/version.hpp")
+set(VERSION_TEMPLATE "${CMAKE_SOURCE_DIR}/cmake/template/version.hpp.in")
+
 configure_file(
-  ${CMAKE_SOURCE_DIR}/cmake/template/version.hpp.in
-  ${CMAKE_BINARY_DIR}/include/Machinish/config/version.hpp
+  ${VERSION_TEMPLATE}
+  ${VERSION_HEADER}
   @ONLY
+  NEWLINE_STYLE UNIX
 )
 
 message(STATUS "[Machinish] Version: ${DISPLAY_VERSION}")
