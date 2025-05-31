@@ -1,0 +1,5 @@
+#pragma once
+
+#ifndef MACHINISH_VERSION_STRING
+#define MACHINISH_VERSION_STRING "@DISPLAY_VERSION@"
+#endif
