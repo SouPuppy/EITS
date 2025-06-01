@@ -1,5 +1,6 @@
 #include <iostream>
-#include <Machinish/info/version.h>
+
+#include <Machinish/Machinish.h>
 
 int main() {
 	std::cout << "Machinish Version: " << Machinish::Info::version() << "\n";

@@ -1,4 +1,5 @@
 # CMakeLists.txt
+
 cmake_minimum_required(VERSION 3.25.0)
 
 include(cmake/ProjectVersion.cmake) 
@@ -11,6 +12,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # Options
 option(ENABLE_TESTING "Enable testing" ON)
 option(BUILD_EXAMPLES "Build examples" ON)
+
+# Includes
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # Subdirectories
 
@@ -28,5 +32,4 @@ if(ENABLE_TESTING)
 endif()
 
 # Install
-
 message(STATUS "[Machinish] Build type: ${CMAKE_BUILD_TYPE}")
