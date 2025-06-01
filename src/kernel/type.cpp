@@ -1,9 +1,9 @@
-// src/type.h
+// src/term.h
 
 #include <iostream>
 #include <typeinfo>
 
-#include <Machinish/kernel/type.h>
+#include <Machinish/kernel/term.h>
 
 namespace Machinish {
 

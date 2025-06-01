@@ -5,7 +5,7 @@
 #include <string>
 
 #include <Machinish/common.h>
-#include <Machinish/kernel/type.h>
+#include <Machinish/kernel/term.h>
 
 namespace Machinish {
 

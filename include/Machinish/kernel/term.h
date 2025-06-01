@@ -1,4 +1,4 @@
-// include/Machinish/type.h
+// include/Machinish/term.h
 
 #pragma once
 

@@ -4,7 +4,7 @@
 
 #include <gtest/gtest.h>
 
-#include <Machinish/kernel/type.h>
+#include <Machinish/kernel/term.h>
 
 using namespace Machinish;
 

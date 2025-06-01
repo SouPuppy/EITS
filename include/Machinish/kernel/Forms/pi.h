@@ -7,7 +7,7 @@
 #include <string>
 
 #include <Machinish/common.h>
-#include <Machinish/kernel/type.h>
+#include <Machinish/kernel/term.h>
 #include <Machinish/kernel/Forms/typed_variable.h>
 
 namespace Machinish {
