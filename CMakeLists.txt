@@ -23,12 +23,13 @@ add_subdirectory(src)
 
 ## Examples
 if(BUILD_EXAMPLES)
-    add_subdirectory(examples)
+	add_subdirectory(examples)
 endif()
 
 # Testing
 if(ENABLE_TESTING)
-    add_subdirectory(test)
+	enable_testing()
+  add_subdirectory(test)
 endif()
 
 # Install
