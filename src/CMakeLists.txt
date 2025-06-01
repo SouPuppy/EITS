@@ -8,7 +8,7 @@ add_library(machinish INTERFACE)
 target_link_libraries(machinish
 	INTERFACE
 		machinish_info
-		# machinish_kernel
+		machinish_kernel
 )
 
 target_include_directories(machinish

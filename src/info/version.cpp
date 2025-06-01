@@ -1,9 +1,9 @@
 // src/info/version.cpp
 
+#include <string>
+
 #include <Machinish/config/version.h>
 #include <Machinish/info/version.h>
-
-#include <string>
 
 namespace Machinish::Info {
   std::string version() {

@@ -1,0 +1,3 @@
+#pragma once
+
+#cmakedefine MACHINISH_ENABLE_DEBUG

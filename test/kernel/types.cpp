@@ -8,7 +8,7 @@
 
 using namespace Machinish;
 
-struct DummyType : Type {
+struct DummyType : Type_Base {
 	std::string value;
 	explicit DummyType(const std::string& v) : value(v) {}
 

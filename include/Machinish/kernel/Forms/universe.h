@@ -4,14 +4,27 @@
 
 #include <string>
 
+#include <Machinish/common.h>
 #include <Machinish/kernel/type.h>
 
 namespace Machinish {
 
-struct Universe : Type {
+struct Type_Universe : Type_Base {
+	int level;
+
+	Type_Universe(int _level): level(_level) {};
 	std::string to_string() const override {
-		return "Universe";
+#ifdef MACHINISH_ENABLE_DEBUG
+		return "(Universe) 𝒰 " + std::to_string(level);
+#else
+		return std::to_string(level);
+#endif
 	}
 };
+
+using Universe = std::shared_ptr<Type_Universe>;
+inline Type makeUniverse(int level) {
+	return std::make_shared<Type_Universe>(level);
+}
 
 } // namespace Machinish

@@ -15,6 +15,7 @@ option(BUILD_EXAMPLES "Build examples" ON)
 
 # Includes
 include_directories(${CMAKE_SOURCE_DIR}/include)
+include_directories(${CMAKE_BINARY_DIR}/generated/include)
 
 # Subdirectories
 
