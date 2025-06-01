@@ -6,6 +6,7 @@ project(Machinish VERSION ${PROJECT_VERSION} LANGUAGES C CXX)
 
 include(cmake/BuildOptions.cmake)
 include(cmake/Version.cmake)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Options
 option(ENABLE_TESTING "Enable testing" ON)
@@ -23,11 +24,9 @@ endif()
 
 # Testing
 if(ENABLE_TESTING)
-    enable_testing()
     add_subdirectory(test)
 endif()
 
 # Install
-
 
 message(STATUS "[Machinish] Build type: ${CMAKE_BUILD_TYPE}")

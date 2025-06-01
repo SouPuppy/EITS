@@ -1,4 +1,4 @@
 # examples/CMakeLists.txt
 
-add_executable(demp main.cpp)
-target_link_libraries(demp PRIVATE machinish_info)
+add_executable(demo main.cpp)
+target_link_libraries(demo PRIVATE machinish_info)

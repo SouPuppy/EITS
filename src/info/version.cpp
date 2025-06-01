@@ -1,7 +1,7 @@
 // src/info/version.cpp
 
-#include <Machinish/config/version.hpp>
-#include <Machinish/info/version.hpp>
+#include <Machinish/config/version.h>
+#include <Machinish/info/version.h>
 
 #include <string>
 
