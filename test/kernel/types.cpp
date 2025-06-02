@@ -4,11 +4,11 @@
 
 #include <gtest/gtest.h>
 
-#include <Machinish/kernel/term.h>
+#include <Machinish/kernel/expression.h>
 
 using namespace Machinish;
 
-struct DummyType : Type_Base {
+struct DummyType : Expression {
 	std::string value;
 	explicit DummyType(const std::string& v) : value(v) {}
 

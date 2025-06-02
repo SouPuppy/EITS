@@ -6,11 +6,11 @@
 #include <string>
 
 #include <Machinish/common.h>
-#include <Machinish/kernel/term.h>
+#include <Machinish/kernel/expression.h>
 
 namespace Machinish {
 
-struct Type_TypedVariable : Type_Base {
+struct Type_TypedVariable : Expression {
 	std::string binder;
 	Type annotation;
 

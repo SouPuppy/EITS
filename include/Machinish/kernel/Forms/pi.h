@@ -7,12 +7,12 @@
 #include <string>
 
 #include <Machinish/common.h>
-#include <Machinish/kernel/term.h>
+#include <Machinish/kernel/expression.h>
 #include <Machinish/kernel/Forms/typed_variable.h>
 
 namespace Machinish {
 
-struct Type_Pi : Type_Base {
+struct Type_Pi : Expression {
 	Type binder;
 	Type codomain;
 

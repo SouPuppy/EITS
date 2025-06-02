@@ -3,7 +3,7 @@
 #pragma once
 
 #include <Machinish/info/version.h>
-#include <Machinish/kernel/term.h>
+#include <Machinish/kernel/expression.h>
 #include <Machinish/kernel/context.h>
 
 #include <Machinish/kernel/Forms/pi.h>

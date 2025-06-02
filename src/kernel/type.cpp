@@ -1,16 +1,16 @@
-// src/term.h
+// src/expression.h
 
 #include <iostream>
 #include <typeinfo>
 
-#include <Machinish/kernel/term.h>
+#include <Machinish/kernel/expression.h>
 
 namespace Machinish {
 
 bool operator==(const Type &lhs, const Type &rhs) {
 	if (!lhs || !rhs) return false;
-	const Type_Base& lref = *lhs;
-	const Type_Base& rref = *rhs;
+	const Expression& lref = *lhs;
+	const Expression& rref = *rhs;
 	std::cout << typeid(lref).name() << "\n" << typeid(rref).name() << std::endl;
 	if (typeid(lref) != typeid(rref)) {
 		return false;

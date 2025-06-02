@@ -5,11 +5,11 @@
 #include <string>
 
 #include <Machinish/common.h>
-#include <Machinish/kernel/term.h>
+#include <Machinish/kernel/expression.h>
 
 namespace Machinish {
 
-struct Type_Universe : Type_Base {
+struct Type_Universe : Expression {
 	int level;
 
 	Type_Universe(int _level): level(_level) {};

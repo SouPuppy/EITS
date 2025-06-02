@@ -1,4 +1,4 @@
-// include/Machinish/term.h
+// include/Machinish/expression.h
 
 #pragma once
 
@@ -7,12 +7,12 @@
 
 namespace Machinish {
 
-struct Type_Base {
-	virtual ~Type_Base() = default;
+struct Expression {
+	virtual ~Expression() = default;
 	virtual std::string to_string() const = 0;
 };
 	
-using Type = std::shared_ptr<Type_Base>;
+using Type = std::shared_ptr<Expression>;
 bool operator==(const Type &lhs, const Type &rhs);
 
 } // namespace Machinish
