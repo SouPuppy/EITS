@@ -1,11 +1,14 @@
 # src/kernel/CMakeLists.txt
 
-add_library(machinish_kernel STATIC
-	type.cpp
-)
+add_subdirectory(runtime)
+add_subdirectory(basis)
+add_subdirectory(syntax)
 
-target_include_directories(machinish_kernel
-	PUBLIC
-		${PROJECT_SOURCE_DIR}/include
-		${CMAKE_BINARY_DIR}/include
+add_library(machinish_kernel INTERFACE)
+
+target_link_libraries(machinish_kernel
+	INTERFACE
+		machinish_kernel_basis
+		machinish_kernel_runtime
+		machinish_kernel_syntax
 )

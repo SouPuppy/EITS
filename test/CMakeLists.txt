@@ -11,4 +11,5 @@ FetchContent_MakeAvailable(googletest)
 
 include(GoogleTest)
 
+add_subdirectory(internal)
 add_subdirectory(kernel)

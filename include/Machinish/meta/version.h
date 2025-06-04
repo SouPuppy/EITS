@@ -2,6 +2,6 @@
 
 #include <string>
 
-namespace Machinish::Info {
+namespace Machinish::Meta {
   std::string version();
-} // Machinish::Info
+} // Machinish::Meta

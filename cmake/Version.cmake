@@ -22,8 +22,8 @@ endif()
 
 set(PROJECT_VERSION "${DISPLAY_VERSION}" CACHE INTERNAL "Project version")
 
-set(VERSION_HEADER "${CMAKE_BINARY_DIR}/generated/include/Machinish/config/version.h")
 set(VERSION_TEMPLATE "${CMAKE_SOURCE_DIR}/cmake/template/version.h.in")
+set(VERSION_HEADER "${CMAKE_BINARY_DIR}/generated/include/Machinish/config/version.h")
 
 configure_file(
   ${VERSION_TEMPLATE}

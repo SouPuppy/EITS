@@ -13,13 +13,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(ENABLE_TESTING "Enable testing" ON)
 option(BUILD_EXAMPLES "Build examples" ON)
 
-# Includes
-include_directories(${CMAKE_SOURCE_DIR}/include)
-include_directories(${CMAKE_BINARY_DIR}/generated/include)
-
-# Subdirectories
-
-## Source File
 add_subdirectory(src)
 
 ## Examples
