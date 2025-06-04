@@ -16,12 +16,14 @@ void Runtime::init() {
 }
 
 void Runtime::execute(Instruction instruction) {
+//NOTE - refactor switch with handler
 	switch (instruction) {
-		case Instruction::Exit: exit(0); break;
-		case Instruction::Save: ctx.save(std::filesystem::current_path()); break;
-		case Instruction::Load: ctx.load(std::filesystem::current_path()); break;
-		default:
-			break;
+		case Instruction::Reset: ctx.clear(); break;
+		case Instruction::Save:	ctx.save(std::filesystem::current_path()); break;
+		case Instruction::Load:	ctx.load(std::filesystem::current_path()); break;
+		case Instruction::Dump:	ctx.show(); break;
+		case Instruction::Exit:	exit(0); break;
+		default: break;
 	}
 }
 

@@ -7,6 +7,7 @@
 namespace Machinish {
 
 struct Variable : Expression {
+	virtual ~Variable() = default;
 	void dump() override;
 	std::string to_string() const override;
 	void print(std::ostream& os = std::cout) const override;

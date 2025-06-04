@@ -7,9 +7,11 @@
 namespace Machinish {
 
 enum class Instruction {
+	Reset,
+	Dump,
 	Load,
 	Save,
-	Exit
+	Exit,
 };
 
 struct Runtime {

@@ -16,6 +16,7 @@ struct Context {
 	std::vector<std::pair<std::string, ExpressionPtr>> entries;
 	
 	~Context() = default;
+	void clear();
 	void add(const std::string& name, ExpressionPtr expr);
 	void show(std::ostream& os = std::cout) const;
 	std::optional<ExpressionPtr> lookup(const std::string& name) const;

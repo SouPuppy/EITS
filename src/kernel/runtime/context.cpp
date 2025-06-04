@@ -10,18 +10,24 @@
 
 namespace Machinish {
 
+void Context::clear() {
+	entries.clear();
+}
+
 void Context::add(const std::string& name, ExpressionPtr expr) {
 	entries.emplace_back(std::make_pair(name, expr));
 }
 
 void Context::show(std::ostream& os) const {
-	os << "Γ := {\n";
+	os << "Γ := {";
+	os << ("\n "[entries.empty()]);
 	for (const auto& [name, expr] : entries) {
 		os << "  " << name << " ↦ ";
-		if (expr) expr->print(os);
+		if (expr) expr->print(os); 
 		else os << "<null>";
-		os << "}\n";
+		os << "\n";
 	}
+	os << "}\n";
 }
 
 std::optional<ExpressionPtr> Context::lookup(const std::string& name) const {
