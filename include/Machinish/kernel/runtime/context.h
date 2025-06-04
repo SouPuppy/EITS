@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 #include <optional>
+#include <filesystem>
 
 #include <Machinish/kernel/syntax/expression/expression.h>
 namespace Machinish {
@@ -18,6 +19,8 @@ struct Context {
 	void add(const std::string& name, ExpressionPtr expr);
 	void show(std::ostream& os = std::cout) const;
 	std::optional<ExpressionPtr> lookup(const std::string& name) const;
+	void save(const std::filesystem::path& path);
+	void load(const std::filesystem::path& path);
 };
 
 } // namespace Machinish

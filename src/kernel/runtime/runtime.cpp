@@ -1,11 +1,11 @@
 // src/runtime/runtime.cpp
 
 #include "Machinish/kernel/runtime/runtime.h"
+#include "Machinish/kernel/runtime/context.h"
 
 #include <iostream>
 
 #include "Machinish/meta/version.h"
-#include "internal/instructions/exit.h"
 
 namespace Machinish {
 
@@ -17,9 +17,9 @@ void Runtime::init() {
 
 void Runtime::execute(Instruction instruction) {
 	switch (instruction) {
-		case Instruction::Exit:
-			
-			break;
+		case Instruction::Exit: exit(0); break;
+		case Instruction::Save: ctx.save(std::filesystem::current_path()); break;
+		case Instruction::Load: ctx.load(std::filesystem::current_path()); break;
 		default:
 			break;
 	}

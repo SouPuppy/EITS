@@ -39,3 +39,20 @@
 - **Utils**
 	- `#save` / `#load` — Save/load the current session or context
 	- `#exit` — Exit the runtime
+
+---
+
+**`#def`**
+
+```
+def id := λx. x
+def two := (λf. λx. f (f x))
+#context
+```
+
+```
+Γ := {
+  id ↦ λx. x,
+  two ↦ (λf. λx. f (f x))
+}
+```

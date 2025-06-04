@@ -2,6 +2,8 @@
 
 #include "Machinish/kernel/runtime/context.h"
 
+#include <filesystem>
+// #include <fstream>
 #include <optional>
 #include <iostream>
 #include <utility>
@@ -13,11 +15,12 @@ void Context::add(const std::string& name, ExpressionPtr expr) {
 }
 
 void Context::show(std::ostream& os) const {
+	os << "Γ := {\n";
 	for (const auto& [name, expr] : entries) {
-		os << name << " : ";
+		os << "  " << name << " ↦ ";
 		if (expr) expr->print(os);
 		else os << "<null>";
-		os << "\n";
+		os << "}\n";
 	}
 }
 
@@ -28,6 +31,16 @@ std::optional<ExpressionPtr> Context::lookup(const std::string& name) const {
 		}
 	}
 	return std::nullopt;
+}
+
+void Context::save(const std::filesystem::path& path) {
+	if(path == path) {}
+	std::cout << "Saving into: " << path << std::endl;
+}
+
+void Context::load(const std::filesystem::path& path) {
+	if(path == path) {}
+	std::cout << "Loading from: " << path << std::endl;
 }
 
 } // namespace Machinish

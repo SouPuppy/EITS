@@ -23,7 +23,7 @@ int main() {
 	Binder b(std::make_shared<Universe>(u), std::make_shared<Type>(tp));
 	b.dump();
 
-	cout << b.to_string();
-
+	cout << b.to_string() << endl;
+	runtime.execute(Instruction::Save);
 	return 0;
 }
