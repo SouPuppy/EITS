@@ -7,12 +7,12 @@
 
 using namespace Machinish::Kernel::Universe;
 
-TEST(LevelTest, Zero) {
+TEST(LevelTests, Zero) {
     Level l = zero();
     EXPECT_TRUE(std::holds_alternative<Zero>(l));
 }
 
-TEST(LevelTest, Succ) {
+TEST(LevelTests, Succ) {
     Level base = zero();
     Level l = succ(base);
     EXPECT_TRUE(std::holds_alternative<Succ>(l));
@@ -21,7 +21,7 @@ TEST(LevelTest, Succ) {
     EXPECT_TRUE(std::holds_alternative<Zero>(*s.pred));
 }
 
-TEST(LevelTest, Max) {
+TEST(LevelTests, Max) {
     Level a = zero();
     Level b = succ(a);
     Level m = max(a, b);

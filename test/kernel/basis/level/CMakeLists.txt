@@ -12,4 +12,6 @@ target_link_libraries(test_level PRIVATE
 	machinish_headers
 )
 
-gtest_discover_tests(test_level)
+//FIXME - ?
+# gtest_discover_tests(test_level)
+add_test(NAME LevelTests COMMAND test_level)
