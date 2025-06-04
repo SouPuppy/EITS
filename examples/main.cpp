@@ -15,5 +15,7 @@ int main() {
 	b.dump();
 	Universe u;
 	u.dump();
+	Variable v;
+	v.dump();
 	return 0;
 }
