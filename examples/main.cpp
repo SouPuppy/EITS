@@ -9,6 +9,7 @@ Runtime runtime;
 
 int main() {
 	runtime.init();
-	
+	Term a;
+	a.dump();
 	return 0;
 }

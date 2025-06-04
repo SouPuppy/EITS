@@ -2,6 +2,7 @@
 
 #include "Machinish/kernel/runtime/context.h"
 
+#include <optional>
 #include <iostream>
 #include <utility>
 

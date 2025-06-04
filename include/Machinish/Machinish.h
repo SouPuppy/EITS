@@ -9,6 +9,7 @@
 #include <Machinish/kernel/runtime/runtime.h>
 
 // Core syntax tree: expressions, types, universes, variables
+#include <Machinish/kernel/syntax/expression/expression.h>
 #include <Machinish/kernel/syntax/expression/term.h>
 #include <Machinish/kernel/syntax/expression/type.h>
 #include <Machinish/kernel/syntax/expression/universe.h>

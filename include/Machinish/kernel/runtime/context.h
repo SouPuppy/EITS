@@ -6,6 +6,7 @@
 #include <string>
 #include <utility>
 #include <vector>
+#include <optional>
 
 #include <Machinish/kernel/syntax/expression/expression.h>
 namespace Machinish {

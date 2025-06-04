@@ -12,8 +12,8 @@ namespace Machinish {
 Runtime::~Runtime() {}
 
 void Runtime::init() {
-	std::cout << "[Initiating Runtime]\n" << std::endl;
-	std::cout << "  Machinish kernel version: " << Machinish::Meta::version() << std::endl;
+	std::cout << "[Initiating Runtime]" << std::endl;
+	std::cout << " - Machinish kernel version: " << Machinish::Meta::version() << std::endl;
 	return ;
 }
 
