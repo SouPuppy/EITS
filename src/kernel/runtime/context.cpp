@@ -8,8 +8,6 @@
 
 namespace Machinish {
 
-Context::~Context() {}
-
 void Context::add(const std::string& name, ExpressionPtr expr) {
 	entries.emplace_back(std::make_pair(name, expr));
 }

@@ -8,7 +8,6 @@
 namespace Machinish {
 
 struct Expression {
-	~Expression() = default;
 	virtual void dump() = 0;
 	virtual std::string to_string() const = 0;
 	virtual void print(std::ostream& os = std::cout) const = 0;
