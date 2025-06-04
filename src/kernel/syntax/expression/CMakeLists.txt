@@ -1,10 +1,11 @@
 # src/kernel/CMakeLists.txt
 
+file(GLOB SOURCE_CODE
+	${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+)
+
 add_library(machinish_expression STATIC
-  expression.cpp
-  term.cpp
-  universe.cpp
-  variable.cpp
+  ${SOURCE_CODE}
 )
 
 target_include_directories(machinish_expression

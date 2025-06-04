@@ -11,5 +11,9 @@ int main() {
 	runtime.init();
 	Term a;
 	a.dump();
+	Type b;
+	b.dump();
+	Universe u;
+	u.dump();
 	return 0;
 }
