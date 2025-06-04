@@ -1,7 +1,5 @@
 // src/kerne/syntax/binder.cpp
 
-#pragma once
-
 #include "Machinish/kernel/syntax/binder.h"
 
 namespace Machinish {
