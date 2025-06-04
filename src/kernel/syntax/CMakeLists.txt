@@ -2,9 +2,11 @@
 
 add_subdirectory(expression)
 
-add_library(machinish_kernel_syntax INTERFACE)
+add_library(machinish_kernel_syntax STATIC
+  binder.cpp
+)
 
 target_link_libraries(machinish_kernel_syntax
-  INTERFACE
+  PUBLIC
     machinish_expression
 )

@@ -4,6 +4,7 @@
 	],
 	"conventionalCommits.scopes": [
 		"scripts",
-		"syntax"
+		"syntax",
+		"cmake"
 	]
 }

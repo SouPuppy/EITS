@@ -1,0 +1,26 @@
+// src/kerne/syntax/binder.cpp
+
+#pragma once
+
+#include "Machinish/kernel/syntax/binder.h"
+
+namespace Machinish {
+
+// Binder::Binder(ExpressionPtr _name, ExpressionPtr _type)
+// 	: name(_name), type(_type) {};
+
+void Binder::dump() {
+	std::cout << "[Bind] - dump()" << std::endl;
+	std::cout << " - " << "name: " << name->to_string() << std::endl;
+	std::cout << " - " << "type: " << type->to_string() << std::endl;
+}
+
+std::string Binder::to_string() const {
+	return name->to_string() + " : " + type->to_string();
+}
+
+void Binder::print(std::ostream& os) const {
+	os << to_string();
+}
+
+} // namespace Machinish
