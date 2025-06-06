@@ -15,6 +15,6 @@ target_include_directories(machinish_kernel_runtime
 
 target_link_libraries(machinish_kernel_runtime
   PUBLIC
-    machinish_headers
 		internal_instructions
+		machinish_headers
 )

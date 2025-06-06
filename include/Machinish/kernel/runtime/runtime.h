@@ -1,8 +1,8 @@
 // include/Machinish/kernel/runtime/runtime.h
 
-#include "../../../src/internal/instructions/snapshot.h"
-
 #pragma once
+
+#include "Machinish/kernel/semantics/context.h"
 
 namespace Machinish {
 

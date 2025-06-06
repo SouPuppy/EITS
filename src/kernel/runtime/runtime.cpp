@@ -52,7 +52,7 @@ void Runtime::handle_load() {
 
 void Runtime::handle_save() {
 	ContextSnapshot snap = create_snapshot(ctx, "snapshot");
-	save(snap, std::filesystem::current_path());
+	save_context(snap, std::filesystem::current_path());
 }
 
 void Runtime::handle_exit() {

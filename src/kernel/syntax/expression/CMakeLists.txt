@@ -8,9 +8,7 @@ add_library(machinish_expression STATIC
   ${SOURCE_CODE}
 )
 
-target_include_directories(machinish_expression
+target_link_libraries(machinish_expression
 	PUBLIC
-		${PROJECT_SOURCE_DIR}/include
-		${CMAKE_BINARY_DIR}/include
+		machinish_headers
 )
-

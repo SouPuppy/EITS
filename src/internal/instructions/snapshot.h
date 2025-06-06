@@ -14,7 +14,7 @@ struct ContextSnapshot {
 };
 
 ContextSnapshot create_snapshot(const Context ctx, std::string label = "default");
-void save(ContextSnapshot& ctx, const std::filesystem::path& path);
+void save_context(ContextSnapshot& ctx, const std::filesystem::path& path);
 // void load(ContextSnapshot& ctx, const std::filesystem::path& path);
 // void inspect(ContextSnapshot& ctx);
 
