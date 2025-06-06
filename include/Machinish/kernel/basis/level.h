@@ -20,6 +20,7 @@ struct Max {
 
 using LevelType = std::variant<Zero, Succ, Max>;
 
+//REVIEW - should update to value-based Level?
 struct Level {
 	std::shared_ptr<LevelType> level;
 
