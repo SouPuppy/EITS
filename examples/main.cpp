@@ -1,8 +1,6 @@
 // #include <iostream>
 
-#include "Machinish/kernel/runtime/runtime.h"
-#include "Machinish/kernel/syntax/binder.h"
-#include "Machinish/kernel/syntax/expression/universe.h"
+#include <logger.h>
 #include <Machinish/Machinish.h>
 #include <memory>
 
@@ -12,6 +10,8 @@ using namespace Machinish;
 Runtime runtime;
 
 int main() {
+	logger::init("log/example.log");
+
 	runtime.init();
 	Term a;
 	Type tp;

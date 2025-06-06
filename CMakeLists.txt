@@ -13,6 +13,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(ENABLE_TESTING "Enable testing" ON)
 option(BUILD_EXAMPLES "Build examples" ON)
 
+# Libraries
+add_subdirectory(lib/logger)
+option(ENABLE_LOG_VERBOSE "Enable verbose logging" ON)
+
+# Source Code
 add_subdirectory(src)
 
 ## Examples
