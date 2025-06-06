@@ -1,6 +1,6 @@
 // include/Machinish/kernel/runtime/runtime.h
 
-#include <Machinish/kernel/runtime/context.h>
+#include "../../../src/internal/instructions/snapshot.h"
 
 #pragma once
 
@@ -20,6 +20,12 @@ struct Runtime {
 	~Runtime() = default;
 	void init();
 	void execute(Instruction instr);
+
+	void handle_reset();
+	void handle_dump();
+	void handle_load();
+	void handle_save();
+	void handle_exit();
 };
 
 } // namespace Machinish

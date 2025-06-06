@@ -1,4 +1,4 @@
-// include/Machinish/kernel/runtime/context.h
+// include/Machinish/kernel/semantics/context.h
 
 #pragma once
 
@@ -7,9 +7,9 @@
 #include <utility>
 #include <vector>
 #include <optional>
-#include <filesystem>
 
 #include <Machinish/kernel/syntax/expression/expression.h>
+
 namespace Machinish {
 
 struct Context {
@@ -18,10 +18,8 @@ struct Context {
 	~Context() = default;
 	void clear();
 	void add(const std::string& name, ExpressionPtr expr);
-	void show(std::ostream& os = std::cout) const;
+	void dump(std::ostream& os = std::cout) const;
 	std::optional<ExpressionPtr> lookup(const std::string& name) const;
-	void save(const std::filesystem::path& path);
-	void load(const std::filesystem::path& path);
 };
 
 } // namespace Machinish

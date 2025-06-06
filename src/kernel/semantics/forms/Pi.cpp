@@ -13,7 +13,7 @@ void Pi::dump() {
 }
 
 std::string Machinish::Pi::to_string() const {
-	return "Pi(" + binder.to_string() + ", " + body->to_string() + ")";
+	return "Π " + binder.to_string() + ", " + body->to_string();
 }
 
 void Pi::print(std::ostream& os) const {

@@ -6,5 +6,7 @@
 		"scripts",
 		"syntax",
 		"cmake"
-	]
+	],
+	"cmake.buildDirectory": "${workspaceFolder}/build",
+	// "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
 }

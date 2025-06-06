@@ -9,6 +9,7 @@ target_include_directories(internal_uid
     ${PROJECT_SOURCE_DIR}/src
 )
 
-target_include_directories(internal_uid PUBLIC
-	${CMAKE_CURRENT_SOURCE_DIR}
+target_include_directories(internal_uid 
+	PUBLIC
+		${CMAKE_CURRENT_SOURCE_DIR}
 )
