@@ -3,6 +3,7 @@ cmake-build-*/
 .cache/
 .idea/
 log/
+.DS_Store
 
 # omac Snapshots
 snapshot.omac
