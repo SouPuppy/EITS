@@ -1,0 +1,5 @@
+// log_config.h.in
+
+#pragma once
+
+#cmakedefine ENABLE_LOG_VERBOSE
