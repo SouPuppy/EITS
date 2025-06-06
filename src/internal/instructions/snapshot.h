@@ -13,8 +13,8 @@ struct ContextSnapshot {
 	std::string label;
 };
 
-ContextSnapshot create_snapshot(const Context ctx, std::string label = "default");
-void save_context(ContextSnapshot& ctx, const std::filesystem::path& path);
+ContextSnapshot create_snapshot(const Context ctx, std::string label);
+void save_context(ContextSnapshot& snap, std::ostream& os);
 // void load(ContextSnapshot& ctx, const std::filesystem::path& path);
 // void inspect(ContextSnapshot& ctx);
 

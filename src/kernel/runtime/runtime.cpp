@@ -5,7 +5,8 @@
 #include "internal/instructions/snapshot.h"
 
 #include <iostream>
-#include <functional>
+#include <fstream>
+
 #include <map>
 
 #include "Machinish/meta/version.h"
@@ -50,10 +51,33 @@ void Runtime::handle_load() {
 	// ctx = load_from_path(...);
 }
 
-void Runtime::handle_save() {
-	ContextSnapshot snap = create_snapshot(ctx, "snapshot");
-	save_context(snap, std::filesystem::current_path());
+void save_meta(std::ostream& out) {
+	auto now = std::chrono::system_clock::now();
+	auto in_time_t = std::chrono::system_clock::to_time_t(now);
+	out << "[meta]\n";
+	out << "  - time: " << std::ctime(&in_time_t);
 }
+
+void Runtime::handle_save() {
+	std::string label = "snapshot";
+	auto current_dir = std::filesystem::current_path();
+	auto file_path = current_dir / (label + ".omac");
+
+	if (!std::filesystem::exists(current_dir)) {
+		std::filesystem::create_directories(current_dir);
+	}
+
+	std::ofstream out(file_path, std::ios::out | std::ios::trunc);
+	if (!out) {
+		std::cerr << "[Error] Cannot open file: " << file_path << std::endl;
+		return;
+	}
+
+	ContextSnapshot snap = create_snapshot(ctx, label);
+	save_meta(out);
+	save_context(snap, out);
+}
+
 
 void Runtime::handle_exit() {
 	exit(0);
