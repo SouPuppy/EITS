@@ -1,23 +1,24 @@
 // src/runtime/runtime.cpp
 
 #include "Machinish/kernel/runtime/runtime.h"
-#include "Machinish/kernel/semantics/context.h"
-#include "internal/instructions/snapshot.h"
 
 #include <iostream>
 #include <fstream>
 #include <chrono>
 #include <filesystem>
-
 #include <map>
 
 #include "Machinish/meta/version.h"
+#include "Machinish/kernel/semantics/context.h"
+#include "internal/instructions/snapshot.h"
 
 void save_meta(std::ostream& out) {
 	auto now = std::chrono::system_clock::now();
 	auto in_time_t = std::chrono::system_clock::to_time_t(now);
 	out << "[meta]\n";
 	out << "  - time: " << std::ctime(&in_time_t);
+	out << "  - version: " << Machinish::Meta::version() << "\n";
+	out << std::endl;
 }
 
 namespace Machinish {
