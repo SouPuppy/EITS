@@ -11,6 +11,13 @@
 
 #include "Machinish/meta/version.h"
 
+void save_meta(std::ostream& out) {
+	auto now = std::chrono::system_clock::now();
+	auto in_time_t = std::chrono::system_clock::to_time_t(now);
+	out << "[meta]\n";
+	out << "  - time: " << std::ctime(&in_time_t);
+}
+
 namespace Machinish {
 
 void Runtime::init() {
@@ -51,13 +58,6 @@ void Runtime::handle_load() {
 	// ctx = load_from_path(...);
 }
 
-void save_meta(std::ostream& out) {
-	auto now = std::chrono::system_clock::now();
-	auto in_time_t = std::chrono::system_clock::to_time_t(now);
-	out << "[meta]\n";
-	out << "  - time: " << std::ctime(&in_time_t);
-}
-
 void Runtime::handle_save() {
 	std::string label = "snapshot";
 	auto current_dir = std::filesystem::current_path();
@@ -77,7 +77,6 @@ void Runtime::handle_save() {
 	save_meta(out);
 	save_context(snap, out);
 }
-
 
 void Runtime::handle_exit() {
 	exit(0);
