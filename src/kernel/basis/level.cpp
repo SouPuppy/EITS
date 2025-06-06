@@ -2,18 +2,45 @@
 
 #include "Machinish/kernel/basis/level.h"
 
-namespace Machinish::Kernel::Universe {
+#include <string>
 
-Level zero() {
-	return Zero{};
+template<class... Ts> struct overloaded : Ts... { using Ts::operator()...; };
+template<class... Ts> overloaded(Ts...) -> overloaded<Ts...>;
+
+namespace Machinish {
+
+Level::Level(LevelType t)
+  : level(std::make_shared<LevelType>(std::move(t))) {}
+
+Level Level::zero() {
+	return Level(LevelType(Zero{}));
 }
 
-Level succ(const Level& l) {
-	return Succ{ std::make_shared<Level>(l) };
+Level Level::succ(const Level& l) {
+	return Level(LevelType(Succ{
+		.pred = std::make_shared<Level>(l)
+	}));
 }
 
-Level max(const Level& a, const Level& b) {
-	return Max{ std::make_shared<Level>(a), std::make_shared<Level>(b) };
+Level Level::max(const Level& l1, const Level& l2) {
+	return Level(LevelType(Max{
+		.l1 = std::make_shared<Level>(l1),
+		.l2 = std::make_shared<Level>(l2)
+	}));
 }
 
-} // namespace Machinish::Kernel::Universe
+std::string Level::to_string() const {
+	return std::visit(overloaded {
+		[](const Zero&) -> std::string {
+			return "0";
+		},
+		[](const Succ& s) -> std::string {
+			return "S(" + s.pred->to_string() + ")";
+		},
+		[](const Max& m) -> std::string {
+			return "max(" + m.l1->to_string() + ", " + m.l2->to_string() + ")";
+		}
+	}, *level);
+}
+
+} // namespace Machinish

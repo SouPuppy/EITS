@@ -1,27 +1,36 @@
-// include/Machinish/basis/level.h
+// include/Machinish/basis/levelType.h
 
 #pragma once
 #include <memory>
 #include <variant>
+#include <string>
 
-namespace Machinish::Kernel::Universe {
+namespace Machinish {
+
+struct Level;
+using LevelPtr = std::shared_ptr<Level>;
 
 struct Zero {};
-struct Succ;
-struct Max;
-
-using Level = std::variant<Zero, Succ, Max>;
-
 struct Succ {
-	std::shared_ptr<Level> pred;
+	LevelPtr pred;
 };
-
 struct Max {
-	std::shared_ptr<Level> l1, l2;
+	LevelPtr l1, l2;
 };
 
-Level zero();
-Level succ(const Level& l);
-Level max(const Level& a, const Level& b);
+using LevelType = std::variant<Zero, Succ, Max>;
 
-} // namespace Machinish::Kernel::Universe
+struct Level {
+	std::shared_ptr<LevelType> level;
+
+	explicit Level(LevelType t);
+
+	static Level zero();
+	static Level succ(const Level& l);
+	static Level max(const Level& l1, const Level& l2);
+
+	std::string to_string() const;
+};
+
+
+} // namespace Machinish

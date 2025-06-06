@@ -11,7 +11,7 @@ void Universe::dump() {
 }
 
 std::string Universe::to_string() const {
-	return "[Universe]";
+	return "[Universe] 𝒰 ";
 }
 
 void Universe::print(std::ostream& os) const {

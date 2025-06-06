@@ -13,6 +13,7 @@
 #include <Machinish/kernel/syntax/expression/term.h>
 #include <Machinish/kernel/syntax/expression/type.h>
 #include <Machinish/kernel/syntax/expression/universe.h>
+#include <Machinish/kernel/basis/level.h>
 #include <Machinish/kernel/syntax/expression/variable.h>
 #include <Machinish/kernel/syntax/binder.h>
 

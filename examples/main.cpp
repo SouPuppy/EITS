@@ -2,22 +2,50 @@
 
 #include <logger.h>
 #include <Machinish/Machinish.h>
-#include <memory>
 
 using namespace std;
 using namespace Machinish;
+using namespace logger::log;
 
 Runtime runtime;
 
 int main() {
 	logger::init("log/example.log");
 
-	runtime.init();
-	Term a;
-	Type tp;
+	// runtime.init();
+	Term t;
+	t.dump();
+	// Type tp;
 	Universe u;
-	Variable v;
-	Binder b("o", std::make_shared<Type>(tp));
+	DEBUG(u.to_string());
+
+
+	Level l = 
+		Level::max(
+			Level::zero(),
+			Level::succ(Level::succ(Level::zero()))
+		);
+	
+	DEBUG(l.to_string());
+
+
+
+
+
+
+
+
+	// Variable v;
+	// Binder b("o", std::make_shared<Type>(tp));
+	
+	// runtime.execute(Instruction::Save);
+
+
+
+
+
+
+
 
 	// a.dump();
 	// tp.dump();
@@ -27,7 +55,6 @@ int main() {
 
 	// Binder b(std::make_shared<Universe>(u), std::make_shared<Type>(tp));
 
-	runtime.execute(Instruction::Save);
 
 	// runtime.ctx.add("u", std::make_shared<Universe>(u));
 //FIXME - add exclusive rule for Global Context Δ
