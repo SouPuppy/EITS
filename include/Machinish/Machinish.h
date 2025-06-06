@@ -20,6 +20,9 @@
 #include <Machinish/kernel/semantics/value.h>
 #include <Machinish/kernel/semantics/env.h>
 #include <Machinish/kernel/semantics/forms/Form.h>
+#include <Machinish/kernel/semantics/forms/Pi.h>
+#include <Machinish/kernel/semantics/forms/Sigma.h>
+#include <Machinish/kernel/semantics/forms/Id.h>
 
 // Basis tools: location tracking
 #include <Machinish/kernel/basis/location.h>

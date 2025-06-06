@@ -59,5 +59,8 @@ int main() {
 		cout << "v not found\n";
 	}
 
+	Pi pi(b, std::make_shared<Universe>(u));
+	pi.dump();
+	
 	return 0;
 }
