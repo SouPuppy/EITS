@@ -7,10 +7,10 @@
 namespace Machinish {
 
 struct Binder {
-	ExpressionPtr name;
+	std::string name;
 	ExpressionPtr type;
 
-	Binder(ExpressionPtr _name, ExpressionPtr _type)
+	Binder(std::string _name, ExpressionPtr _type)
 		: name(_name), type(_type) {};
 
 	void dump();
