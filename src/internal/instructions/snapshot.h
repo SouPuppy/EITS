@@ -4,8 +4,6 @@
 
 #include "Machinish/kernel/semantics/context.h"
 
-#include <filesystem>
-
 namespace Machinish {
 
 struct ContextSnapshot {
