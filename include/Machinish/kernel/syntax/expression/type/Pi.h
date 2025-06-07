@@ -9,7 +9,7 @@
 namespace Machinish {
 
 struct Pi : Type {
-	
+	~Pi() = default;
 };
 
 } // namespace Machinish

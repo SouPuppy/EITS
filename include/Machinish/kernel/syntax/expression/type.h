@@ -8,7 +8,10 @@
 namespace Machinish {
 
 struct Type : ExpressionTemplate {
-	// Level level;
+	Level level;
+	Type() = default;
+	Type(int level): level(Level(level)) {}
+	Type(Level level) : level(level) {}
 	virtual ~Type() = default;
 	void dump() override;
 	std::string to_string() const override;

@@ -1,9 +1,5 @@
 // #include <iostream>
 
-#include "Machinish/kernel/runtime/runtime.h"
-#include "Machinish/kernel/syntax/binder.h"
-#include "Machinish/kernel/syntax/expression/expression.h"
-#include "Machinish/kernel/syntax/expression/type.h"
 #include <Machinish/Machinish.h>
 
 #include <logger.h>
@@ -26,13 +22,17 @@ int main() {
 	Binder b = Binder("x", expr);
 	DEBUG("Binder: " + b.to_string());
 
-	runtime.add_def("x", expr);
-	runtime.add_def("y", expr);
-	runtime.execute(Instruction::Dump);
+	DEBUG("Level 0: " + Level(4).to_string());
+	
+	LOG(Type(2).to_string());
 
-	LOG("Reset Runtime");
-	runtime.execute(Instruction::Reset);
-	runtime.execute(Instruction::Dump);
+	// runtime.add_def("x", expr);
+	// runtime.add_def("y", expr);
+	// runtime.execute(Instruction::Dump);
+	//
+	// LOG("Reset Runtime");
+	// runtime.execute(Instruction::Reset);
+	// runtime.execute(Instruction::Dump);
 
 	// Type a;
 

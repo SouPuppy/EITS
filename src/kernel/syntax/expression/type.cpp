@@ -1,6 +1,7 @@
 // src/kernel/syntax/expression/type.h
 
 #include "Machinish/kernel/syntax/expression/type.h"
+#include "Machinish/kernel/basis/level.h"
 
 #include <iostream>
 
@@ -11,7 +12,7 @@ void Type::dump() {
 }
 
 std::string Type::to_string() const {
-	return "[Type]";
+	return "Type " + level.to_string();
 }
 
 void Type::print(std::ostream& os) const {

@@ -10,13 +10,13 @@ template<class... Ts> overloaded(Ts...) -> overloaded<Ts...>;
 
 namespace Machinish {
 
-// Level::Level(int _level) {
-// 	// Level res = Level::zero();
-// 	// while (_level--) {
-// 	// 	res = Level::succ(res);
-// 	// }
-// 	// level = std::make_shared<LevelType>(res);
-// }
+	Level::Level(int t) {
+		Level res = Level::zero();
+		while (t--) {
+			res = Level::succ(res);
+		}
+		level = res.level;
+	}
 
 Level::Level(LevelType t)
   : level(std::make_shared<LevelType>(std::move(t))) {}

@@ -25,8 +25,9 @@ using LevelType = std::variant<Zero, Succ, Max>;
 struct Level {
 	std::shared_ptr<LevelType> level;
 
+	explicit Level() : level(std::make_shared<LevelType>(Zero{})) {}
+	explicit Level(int t);
 	explicit Level(LevelType t);
-	// explicit Level(int _level);
 
 	static Level zero();
 	static Level succ(const Level &l);
