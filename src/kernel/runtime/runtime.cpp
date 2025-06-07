@@ -58,7 +58,7 @@ void Runtime::handle_reset() {
 }
 
 void Runtime::handle_dump() {
-	// ctx.dump();
+	ctx.dump();
 }
 
 void Runtime::handle_load() {

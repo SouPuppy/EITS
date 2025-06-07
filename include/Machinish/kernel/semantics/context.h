@@ -2,24 +2,22 @@
 
 #pragma once
 
-#include <iostream>
 #include <optional>
 #include <string>
-#include <utility>
-#include <vector>
+#include <unordered_map>
 
 #include <Machinish/kernel/syntax/expression/expression.h>
 
 namespace Machinish {
 
 struct Context {
-	// std::vector<std::pair<std::string, ExpressionPtr>> entries;
+	std::unordered_map<std::string, Expression> entries;
 
-	// ~Context() = default;
-	// void clear();
-	// void add(const std::string& name, ExpressionPtr expr);
-	// void dump(std::ostream& os = std::cout) const;
-	// std::optional<ExpressionPtr> lookup(const std::string& name) const;
+	~Context() = default;
+	void clear();
+	int add_binding(const std::string &name, const Expression &expr);
+	std::optional<Expression> lookup(const std::string &name) const;
+	void dump(std::ostream& os = std::cout) const;
 };
 
 } // namespace Machinish

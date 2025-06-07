@@ -2,39 +2,43 @@
 
 #include "Machinish/kernel/semantics/context.h"
 
-#include <optional>
 #include <iostream>
+#include <optional>
 #include <utility>
+
+#include <logger.h>
+using namespace logger::log;
 
 namespace Machinish {
 
-// void Context::clear() {
-// 	entries.clear();
-// }
+void Context::clear() { entries.clear(); }
 
-// void Context::add(const std::string& name, ExpressionPtr expr) {
-// 	entries.emplace_back(std::make_pair(name, expr));
-// }
+int Context::add_binding(const std::string &name, const Expression &expr) {
+	// binding exists
+	if (entries.find(name) != entries.end()) {
+		WARNING("Variable " + name + " is already bound in the context.");
+		return 1;
+	}
+	entries[name] = expr;
+	return 0;
+}
 
-// void Context::dump(std::ostream& os) const {
-// 	os << "Γ := {";
-// 	os << ("\n "[entries.empty()]);
-// 	for (const auto& [name, expr] : entries) {
-// 		os << "  " << name << " ↦ ";
-// 		if (expr) expr->print(os); 
-// 		else os << "<null>";
-// 		os << "\n";
-// 	}
-// 	os << "}\n";
-// }
+std::optional<Expression> Context::lookup(const std::string &name) const {
+	const auto it = entries.find(name);
+	if (it == entries.end())
+		return std::nullopt;
+	return it->second;
+}
 
-// std::optional<ExpressionPtr> Context::lookup(const std::string& name) const {
-// 	for (auto it = entries.rbegin(); it != entries.rend(); ++it) {
-// 		if (it->first == name) {
-// 			return it->second;
-// 		}
-// 	}
-// 	return std::nullopt;
-// }
+void Context::dump(std::ostream &os) const {
+	os << "Γ := {";
+	os << ("\n "[entries.empty()]);
+	for (const auto &it : entries) {
+		os << "  " << it.first << " ↦ ";
+		it.second.print(os);
+		os << "\n";
+	}
+	os << "}\n";
+}
 
 } // namespace Machinish
