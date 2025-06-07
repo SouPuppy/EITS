@@ -1,9 +1,8 @@
 // #include <iostream>
 
-#include "Machinish/kernel/syntax/expression/expression.h"
-#include "Machinish/kernel/syntax/expression/variable.h"
-#include <logger.h>
 #include <Machinish/Machinish.h>
+
+#include <logger.h>
 
 using namespace std;
 using namespace Machinish;
@@ -14,7 +13,7 @@ Runtime runtime;
 int main() {
 	logger::init("log/example.log");
 	runtime.init();
-	
+
 	Type a;
 
 	LOG(a.to_string());

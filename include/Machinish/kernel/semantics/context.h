@@ -3,10 +3,10 @@
 #pragma once
 
 #include <iostream>
+#include <optional>
 #include <string>
 #include <utility>
 #include <vector>
-#include <optional>
 
 #include <Machinish/kernel/syntax/expression/expression.h>
 
@@ -14,7 +14,7 @@ namespace Machinish {
 
 struct Context {
 	// std::vector<std::pair<std::string, ExpressionPtr>> entries;
-	
+
 	// ~Context() = default;
 	// void clear();
 	// void add(const std::string& name, ExpressionPtr expr);

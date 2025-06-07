@@ -2,8 +2,8 @@
 
 #pragma once
 
-#include "Machinish/kernel/syntax/expression/expression.h"
 #include "Machinish/kernel/syntax/binder.h"
+#include "Machinish/kernel/syntax/expression/expression.h"
 
 namespace Machinish {
 
@@ -12,4 +12,4 @@ struct Sigma : ExpressionTemplate {
 	ExpressionPtr body;
 };
 
-} // namesapce Machinish
+} // namespace Machinish

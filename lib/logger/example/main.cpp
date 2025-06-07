@@ -23,7 +23,8 @@ int main() {
 	DEBUG("User input received: 'example input'");
 
 	// Default format (same as INFO unless overridden)
-	logger::logger_default.log("This is a default log using the fallback format.", logger::DEFAULT);
+	logger::logger_default.log("This is a default log using the fallback format.",
+														 logger::DEFAULT);
 
 	// OK message: operation completed successfully
 	OK("Data processed successfully.");

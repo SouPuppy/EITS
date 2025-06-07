@@ -11,17 +11,12 @@
 
 namespace Machinish {
 
-using ExpressionVariant = std::variant<
-	Term,
-	Type,
-	Universe,
-	Variable
->;
+using ExpressionVariant = std::variant<Term, Type, Universe, Variable>;
 
-struct Expression : ExpressionVariant{
+struct Expression : ExpressionVariant {
 	using ExpressionVariant::ExpressionVariant;
-	
-  std::string to_string() const;
+
+	std::string to_string() const;
 };
 
 } // namespace Machinish
