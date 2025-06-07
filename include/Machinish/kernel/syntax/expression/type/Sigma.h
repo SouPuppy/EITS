@@ -4,10 +4,26 @@
 
 #include "Machinish/kernel/syntax/expression/type.h"
 
+#include "Machinish/kernel/syntax/expression/expression.h"
+
 namespace Machinish {
 
 struct Sigma : Type {
+  Expression binder;
+  Expression domain;
+  Expression codomain;
 
+	//NOTE - Add anonymous Sigma constructor
+	// Sigma(Expression binder, Expression domain, Expression codomain, Level level = Level::zero())
+	// 	: Type(level), binder(binder), domain(domain), codomain(codomain) {}
+
+	Sigma(Expression binder, Expression domain, Expression codomain, Level level = Level::zero())
+		: Type(level), binder(binder), domain(domain), codomain(codomain) {}
+	
+	~Sigma() override = default;
+	void dump() override;
+	std::string to_string() const override;
+	void print(std::ostream& os = std::cout) const override;
 };
 
 } // namespace Machinish

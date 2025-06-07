@@ -26,6 +26,14 @@ int main() {
 	
 	// LOG(Type(2).to_string());
 
+	Pi p(make_shared<Type>(), make_shared<Type>(), make_shared<Type>());
+	Sigma s(make_shared<Type>(), make_shared<Type>(), make_shared<Type>());
+
+	DEBUG("Sigam " + s.to_string());
+	DEBUG("Pi " + p.to_string());
+
+	p.dump();
+
 	runtime.add_def("ℕ", make_shared<Type>());
 	runtime.execute(Instruction::Dump);
 	//

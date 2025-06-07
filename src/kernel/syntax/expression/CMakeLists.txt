@@ -2,6 +2,7 @@
 
 file(GLOB SOURCE_CODE
 	${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/type/*.cpp
 )
 
 add_library(machinish_expression STATIC
