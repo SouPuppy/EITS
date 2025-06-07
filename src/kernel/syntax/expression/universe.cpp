@@ -7,7 +7,7 @@
 namespace Machinish {
 
 void Universe::dump() {
-	std::cout << "[Universe] - dump()" << std::endl;
+	std::cout << "[Universe]" << std::endl;
 }
 
 std::string Universe::to_string() const {

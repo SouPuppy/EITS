@@ -33,6 +33,10 @@ void Runtime::init() {
 	return ;
 }
 
+void Runtime::add_def(std::string name, Expression expr) {
+	ctx.add_binding(name, expr);
+}
+
 void Runtime::execute(Instruction instruction) {
 	using Handler = void (Runtime::*)();
 	
@@ -54,7 +58,7 @@ void Runtime::execute(Instruction instruction) {
 }
 
 void Runtime::handle_reset() {
-	// ctx.clear();
+	ctx.clear();
 }
 
 void Runtime::handle_dump() {

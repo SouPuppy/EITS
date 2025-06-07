@@ -8,9 +8,9 @@ namespace Machinish {
 
 struct Binder {
 	std::string name;
-	ExpressionPtr type;
+	Expression type;
 
-	Binder(std::string _name, ExpressionPtr _type) : name(_name), type(_type) {};
+	Binder(std::string _name, Expression _type) : name(_name), type(_type) {};
 
 	void dump();
 	std::string to_string() const;

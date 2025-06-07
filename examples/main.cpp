@@ -1,5 +1,7 @@
 // #include <iostream>
 
+#include "Machinish/kernel/runtime/runtime.h"
+#include "Machinish/kernel/syntax/binder.h"
 #include "Machinish/kernel/syntax/expression/expression.h"
 #include "Machinish/kernel/syntax/expression/type.h"
 #include <Machinish/Machinish.h>
@@ -17,11 +19,20 @@ int main() {
 	logger::init("log/example.log");
 	runtime.init();
 
-	Pi a;
-	a.dump();
+	Pi A;
+	Expression expr = make_shared<Type>(A);
+	DEBUG("A " + A.to_string());
 
-	Expression expr = make_shared<Type>(a);
-	expr.dump();
+	Binder b = Binder("x", expr);
+	DEBUG("Binder: " + b.to_string());
+
+	runtime.add_def("x", expr);
+	runtime.add_def("y", expr);
+	runtime.execute(Instruction::Dump);
+
+	LOG("Reset Runtime");
+	runtime.execute(Instruction::Reset);
+	runtime.execute(Instruction::Dump);
 
 	// Type a;
 

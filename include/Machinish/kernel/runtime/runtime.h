@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Machinish/kernel/semantics/context.h"
+#include "Machinish/kernel/syntax/expression/expression.h"
 
 namespace Machinish {
 
@@ -12,6 +13,7 @@ enum class Instruction {
 	Load,
 	Save,
 	Exit,
+	Def,
 };
 
 struct Runtime {
@@ -19,8 +21,10 @@ struct Runtime {
 
 	~Runtime() = default;
 	void init();
-	void execute(Instruction instr);
 
+	void add_def(std::string name, Expression expr);
+	
+	void execute(Instruction instr);
 	void handle_reset();
 	void handle_dump();
 	void handle_load();

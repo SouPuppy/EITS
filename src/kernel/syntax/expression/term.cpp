@@ -7,7 +7,7 @@
 namespace Machinish {
 
 void Term::dump() {
-	std::cout << "[Term] - dump()" << std::endl;
+	std::cout << "[Term]" << std::endl;
 }
 
 std::string Term::to_string() const {

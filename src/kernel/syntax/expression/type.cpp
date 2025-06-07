@@ -7,7 +7,7 @@
 namespace Machinish {
 
 void Type::dump() {
-	std::cout << "[Type] - dump()" << std::endl;
+	std::cout << "[Type]" << std::endl;
 }
 
 std::string Type::to_string() const {

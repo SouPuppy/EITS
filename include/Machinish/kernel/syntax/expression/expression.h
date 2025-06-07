@@ -28,6 +28,6 @@ struct Expression : ExpressionVariant, ExpressionTemplate {
 	void print(std::ostream &os = std::cout) const override;
 };
 
-using ExpressionPtr = std::shared_ptr<Expression>;
+// using ExpressionPtr = std::shared_ptr<Expression>;
 
 } // namespace Machinish

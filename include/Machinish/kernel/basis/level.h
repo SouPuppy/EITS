@@ -1,6 +1,7 @@
 // include/Machinish/basis/levelType.h
 
 #pragma once
+#include <cstddef>
 #include <memory>
 #include <string>
 #include <variant>
@@ -25,6 +26,7 @@ struct Level {
 	std::shared_ptr<LevelType> level;
 
 	explicit Level(LevelType t);
+	// explicit Level(int _level);
 
 	static Level zero();
 	static Level succ(const Level &l);

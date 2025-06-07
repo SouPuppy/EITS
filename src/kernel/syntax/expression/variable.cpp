@@ -7,7 +7,7 @@
 namespace Machinish {
 
 void Variable::dump() {
-	std::cout << "[Variable] - dump()" << std::endl;
+	std::cout << "[Variable]" << std::endl;
 }
 
 std::string Variable::to_string() const {

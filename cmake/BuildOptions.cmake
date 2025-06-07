@@ -6,16 +6,12 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(MACHINISH_ENABLE_DEBUG "Enable Machinish debug mode" ON)
 
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang|AppleClang")
-	add_compile_options(-Wall -Wextra)
-
 	if(CMAKE_BUILD_TYPE STREQUAL "Release")
-		add_compile_options(-Werror -Wpedantic)
+		add_compile_options(-Wall -Wextra -Werror -Wpedantic)
 	endif()
 elseif (MSVC)
-	add_compile_options(/W4)
-
 	if(CMAKE_BUILD_TYPE STREQUAL "Release")
-		add_compile_options(/WX)
+		add_compile_options(/W4 /WX)
 	endif()
 endif()
 

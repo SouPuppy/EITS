@@ -8,13 +8,13 @@ namespace Machinish {
 // 	: name(_name), type(_type) {};
 
 void Binder::dump() {
-  std::cout << "[Bind] - dump()" << std::endl;
+  std::cout << "[Bind]" << std::endl;
   std::cout << " - " << "name: '" << name << "'" << std::endl;
-  std::cout << " - " << "type: " << type->to_string() << std::endl;
+  std::cout << " - " << "type: " << type.to_string() << std::endl;
 }
 
 std::string Binder::to_string() const {
-  return name + " : " + type->to_string();
+  return name + " : " + type.to_string();
 }
 
 void Binder::print(std::ostream &os) const { os << to_string(); }
