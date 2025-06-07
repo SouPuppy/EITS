@@ -1,10 +1,11 @@
 // #include <iostream>
 
 #include "Machinish/kernel/syntax/expression/expression.h"
-#include "Machinish/kernel/syntax/expression/universe.h"
+#include "Machinish/kernel/syntax/expression/type.h"
 #include <Machinish/Machinish.h>
 
 #include <logger.h>
+#include <memory>
 
 using namespace std;
 using namespace Machinish;
@@ -16,23 +17,29 @@ int main() {
 	logger::init("log/example.log");
 	runtime.init();
 
-	Type a;
+	Pi a;
+	a.dump();
 
-	LOG(a.to_string());
+	Expression expr = make_shared<Type>(a);
+	expr.dump();
 
-	Expression expr2 = Variable();
-	Expression expr3 = Universe();
+	// Type a;
 
-	expr2.dump();
+	// LOG(a.to_string());
 
-	runtime.ctx.add_binding("x", expr2);
-	runtime.ctx.add_binding("x", expr2);
-	runtime.ctx.add_binding("u", expr3);
+	// Expression expr2 = Variable();
+	// Expression expr3 = Universe();
 
-	runtime.execute(Instruction::Dump);
+	// expr2.dump();
 
-	auto f = runtime.ctx.lookup("x");
-	if (f) { f->dump(); }
+	// runtime.ctx.add_binding("x", expr2);
+	// runtime.ctx.add_binding("x", expr2);
+	// runtime.ctx.add_binding("u", expr3);
+
+	// runtime.execute(Instruction::Dump);
+
+	// auto f = runtime.ctx.lookup("x");
+	// if (f) { f->dump(); }
 
 	return 0;
 }

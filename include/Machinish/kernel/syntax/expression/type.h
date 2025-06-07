@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "Machinish/kernel/syntax/expression/expression_template.h"
+#include "internal/expression/expression_template.h"
 
 namespace Machinish {
 

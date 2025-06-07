@@ -13,14 +13,13 @@
 #include <Machinish/kernel/syntax/binder.h>
 #include <Machinish/kernel/syntax/expression/expression.h>
 
+#include <Machinish/kernel/syntax/expression/type.h>
+#include <Machinish/kernel/syntax/expression/type/Pi.h>
+#include <Machinish/kernel/syntax/expression/type/Sigma.h>
+#include <Machinish/kernel/syntax/expression/type/Id.h>
+
 // Semantic layer: values, closures, evaluation environment
 #include <Machinish/kernel/semantics/env.h>
-#include <Machinish/kernel/semantics/forms/Form.h>
-#include <Machinish/kernel/semantics/forms/Id.h>
-#include <Machinish/kernel/semantics/forms/Lambda.h>
-#include <Machinish/kernel/semantics/forms/Pair.h>
-#include <Machinish/kernel/semantics/forms/Pi.h>
-#include <Machinish/kernel/semantics/forms/Sigma.h>
 #include <Machinish/kernel/semantics/value.h>
 
 // Basis tools: location tracking

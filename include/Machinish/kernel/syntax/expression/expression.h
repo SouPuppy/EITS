@@ -5,7 +5,6 @@
 #include <memory>
 #include <variant>
 
-#include "expression_template.h"
 #include "term.h"
 #include "type.h"
 #include "universe.h"
@@ -13,7 +12,12 @@
 
 namespace Machinish {
 
-using ExpressionVariant = std::variant<Term, Type, Universe, Variable>;
+using ExpressionVariant = std::variant<
+	std::shared_ptr<Term>,
+	std::shared_ptr<Type>,
+	std::shared_ptr<Universe>,
+	std::shared_ptr<Variable>
+>;
 
 struct Expression : ExpressionVariant, ExpressionTemplate {
 	virtual ~Expression() = default;
