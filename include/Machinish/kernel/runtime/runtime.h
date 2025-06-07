@@ -16,7 +16,7 @@ enum class Instruction {
 
 struct Runtime {
 	Context ctx;
-	
+
 	~Runtime() = default;
 	void init();
 	void execute(Instruction instr);

@@ -2,14 +2,14 @@
 
 #pragma once
 
-#include "Machinish/kernel/syntax/expression/expression.h"
 #include "Machinish/kernel/syntax/binder.h"
+#include "Machinish/kernel/syntax/expression/expression.h"
 
 namespace Machinish {
 
-struct Sigma : Expression {
+struct Sigma : ExpressionTemplate {
 	Binder binder;
 	ExpressionPtr body;
 };
 
-} // namesapce Machinish
+} // namespace Machinish

@@ -2,8 +2,8 @@
 
 #pragma once
 #include <memory>
-#include <variant>
 #include <string>
+#include <variant>
 
 namespace Machinish {
 
@@ -20,18 +20,17 @@ struct Max {
 
 using LevelType = std::variant<Zero, Succ, Max>;
 
-//REVIEW - should update to value-based Level?
+// REVIEW - should update to value-based Level?
 struct Level {
 	std::shared_ptr<LevelType> level;
 
 	explicit Level(LevelType t);
 
 	static Level zero();
-	static Level succ(const Level& l);
-	static Level max(const Level& l1, const Level& l2);
+	static Level succ(const Level &l);
+	static Level max(const Level &l1, const Level &l2);
 
 	std::string to_string() const;
 };
-
 
 } // namespace Machinish

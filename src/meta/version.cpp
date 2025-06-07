@@ -8,7 +8,7 @@
 #include "Machinish/meta/version.h"
 
 namespace Machinish::Meta {
-  std::string version() {
-		return MACHINISH_VERSION_STRING;
-	}
-} // Machinish::Meta
+
+std::string version() { return MACHINISH_VERSION_STRING; }
+
+} // namespace Machinish::Meta

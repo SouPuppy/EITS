@@ -2,17 +2,24 @@
 
 #pragma once
 
-#include <memory>
-#include <iostream>
+#include <variant>
+
+#include "expression_template.h"
+#include "term.h"
+#include "type.h"
+#include "universe.h"
+#include "variable.h"
 
 namespace Machinish {
 
-struct Expression {
-	virtual void dump() = 0;
-	virtual std::string to_string() const = 0;
-	virtual void print(std::ostream& os = std::cout) const = 0;
-};
+using ExpressionVariant = std::variant<Term, Type, Universe, Variable>;
 
-using ExpressionPtr = std::shared_ptr<Expression>;
+struct Expression : ExpressionVariant, ExpressionTemplate {
+	using ExpressionVariant::ExpressionVariant;
+	
+	void dump() override;
+	std::string to_string() const override;
+	void print(std::ostream &os = std::cout) const override;
+};
 
 } // namespace Machinish

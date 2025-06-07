@@ -41,8 +41,7 @@ uint64_t UIDGenerator::next() {
 	}
 
 	return ((timestamp & 0x1FFFFFFFFFF) << (machine_bits + sequence_bits)) |
-		   ((machine_id & 0x3FF) << sequence_bits) |
-		   (sequence & max_sequence);
+	       ((machine_id & 0x3FF) << sequence_bits) | (sequence & max_sequence);
 }
 
 } // namespace Machinish::Internal

@@ -12,14 +12,16 @@ ContextSnapshot create_snapshot(const Context ctx, std::string label) {
 	return ContextSnapshot{ctx, label};
 }
 
-void save_context(ContextSnapshot& snap, std::ostream& out) {
+void save_context(ContextSnapshot &snap, std::ostream &out) {
 	out << "[context]";
-	int i = 0;
-	for (const auto& [key, value] : snap.ctx.entries) {
-		out << "\n" << ++i;
-		out << "\n  - term : " << key;
-		out << "\n  - type : " << value->to_string();
+	if (snap.label == snap.label) {
 	}
+	// int i = 0;
+	// for (const auto& [key, value] : snap.ctx.entries) {
+	// 	out << "\n" << ++i;
+	// 	out << "\n  - term : " << key;
+	// 	out << "\n  - type : " << value->to_string();
+	// }
 	out << std::endl;
 }
 

@@ -67,12 +67,8 @@ void Logger::log(const std::string& message, logger::format::LogFormat format) {
 	log_file.flush();
 }
 
-std::ostream& Logger::stream() {
-	return log_file;
-}
+std::ostream& Logger::stream() { return log_file; }
 
-void init(const std::string& log_path) {
-	logger_default.init(log_path);
-}
+void init(const std::string& log_path) { logger_default.init(log_path); }
 
 } // namespace logger
