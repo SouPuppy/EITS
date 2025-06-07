@@ -96,11 +96,11 @@ struct LogFormat {
 ### Predefined Formats
 
 ```cpp
-const format::LogFormat INFO     = {INFO, BRIGHT_BLUE,   true, false, false};
-const format::LogFormat WARN     = {WARN, BRIGHT_YELLOW, true, false, false};
-const format::LogFormat DEBUG    = {DEBUG, BRIGHT_GREEN, true, false, false};
-const format::LogFormat ERROR    = {ERROR, BRIGHT_RED,   true, false, false};
-const format::LogFormat DEV_INFO = {INFO,  BRIGHT_BLACK, true, false, false};
+const format::LogFormat INFO     = {INFO,  BRIGHT_BLUE,   true, false, false};
+const format::LogFormat WARN     = {WARN,  BRIGHT_YELLOW, true, false, false};
+const format::LogFormat DEBUG    = {DEBUG, BRIGHT_GREEN,  true, false, false};
+const format::LogFormat ERROR    = {ERROR, BRIGHT_RED,    true, false, false};
+const format::LogFormat DEV_INFO = {INFO,  BRIGHT_BLACK,  true, false, false};
 ```
 
 ---

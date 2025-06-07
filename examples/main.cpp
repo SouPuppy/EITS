@@ -15,20 +15,19 @@ int main() {
 	logger::init("log/example.log");
 	runtime.init();
 
-	Pi A;
-	Expression expr = make_shared<Type>(A);
-	DEBUG("A " + A.to_string());
+	// Pi A;
+	// Expression expr = make_shared<Type>(A);
+	// DEBUG("A " + A.to_string());
 
-	Binder b = Binder("x", expr);
-	DEBUG("Binder: " + b.to_string());
+	// Binder b = Binder("x", expr);
+	// DEBUG("Binder: " + b.to_string());
 
-	DEBUG("Level 0: " + Level(4).to_string());
+	// DEBUG("Level 0: " + Level(4).to_string());
 	
-	LOG(Type(2).to_string());
+	// LOG(Type(2).to_string());
 
-	// runtime.add_def("x", expr);
-	// runtime.add_def("y", expr);
-	// runtime.execute(Instruction::Dump);
+	runtime.add_def("ℕ", make_shared<Type>());
+	runtime.execute(Instruction::Dump);
 	//
 	// LOG("Reset Runtime");
 	// runtime.execute(Instruction::Reset);

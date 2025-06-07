@@ -14,6 +14,12 @@ target_include_directories(machinish_expression
 )
 
 target_link_libraries(machinish_expression
+	PRIVATE
+		internal_charutil
+		machinish_kernel_basis
+)
+
+target_link_libraries(machinish_expression
 	PUBLIC
 		machinish_headers
 )
