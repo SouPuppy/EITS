@@ -3,6 +3,7 @@ build/
 cmake-build-*/
 .cache/
 .idea/
+.vscode/
 log/
 .DS_Store
 
