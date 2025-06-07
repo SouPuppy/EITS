@@ -21,5 +21,7 @@ int main() {
 	Expression expr2 = Variable();
 	LOG("expr2: " + expr2.to_string());
 
+	expr2.dump();
+
 	return 0;
 }
