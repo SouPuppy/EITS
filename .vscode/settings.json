@@ -1,12 +1,15 @@
 {
-  "clangd.arguments": [
-    "--compile-commands-dir=build"
+	// formatting
+	"editor.formatOnSave": true,
+	// clangd
+	"clangd.arguments": [
+		"--compile-commands-dir=build"
 	],
+	// CMake
 	"conventionalCommits.scopes": [
 		"scripts",
 		"syntax",
 		"cmake"
 	],
 	"cmake.buildDirectory": "${workspaceFolder}/build",
-	// "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
 }

@@ -5,7 +5,7 @@
 namespace Machinish {
 
 std::string Expression::to_string() const {
-	return std::visit([](auto&& arg) { return arg.to_string(); }, *this);
+	return std::visit([](auto &&arg) { return arg.to_string(); }, *this);
 }
 
 } // namespace Machinish
