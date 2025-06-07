@@ -7,7 +7,7 @@
 
 namespace Machinish {
 
-struct Sigma : Expression {
+struct Sigma : ExpressionTemplate {
 	Binder binder;
 	ExpressionPtr body;
 };

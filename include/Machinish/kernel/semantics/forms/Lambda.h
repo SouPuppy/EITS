@@ -7,7 +7,7 @@
 
 namespace Machinish {
 
-struct Lambda : Expression {
+struct Lambda : ExpressionTemplate {
 	Binder binder;
 	ExpressionPtr body;
 

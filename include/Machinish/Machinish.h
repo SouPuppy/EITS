@@ -10,11 +10,7 @@
 
 // Core syntax tree: expressions, types, universes, variables
 #include <Machinish/kernel/syntax/expression/expression.h>
-#include <Machinish/kernel/syntax/expression/term.h>
-#include <Machinish/kernel/syntax/expression/type.h>
-#include <Machinish/kernel/syntax/expression/universe.h>
 #include <Machinish/kernel/basis/level.h>
-#include <Machinish/kernel/syntax/expression/variable.h>
 #include <Machinish/kernel/syntax/binder.h>
 
 // Semantic layer: values, closures, evaluation environment

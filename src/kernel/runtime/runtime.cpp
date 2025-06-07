@@ -12,6 +12,9 @@
 #include "Machinish/kernel/semantics/context.h"
 #include "internal/instructions/snapshot.h"
 
+#include <logger.h>
+using namespace logger::log;
+
 void save_meta(std::ostream& out) {
 	auto now = std::chrono::system_clock::now();
 	auto in_time_t = std::chrono::system_clock::to_time_t(now);
@@ -24,6 +27,7 @@ void save_meta(std::ostream& out) {
 namespace Machinish {
 
 void Runtime::init() {
+	LOG("Initiating Runtime");
 	std::cout << "[Initiating Runtime]" << std::endl;
 	std::cout << "  - Machinish kernel version: " << Machinish::Meta::version() << std::endl;
 	return ;
@@ -50,11 +54,11 @@ void Runtime::execute(Instruction instruction) {
 }
 
 void Runtime::handle_reset() {
-	ctx.clear();
+	// ctx.clear();
 }
 
 void Runtime::handle_dump() {
-	ctx.dump();
+	// ctx.dump();
 }
 
 void Runtime::handle_load() {

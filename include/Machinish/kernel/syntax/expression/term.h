@@ -2,11 +2,11 @@
 
 #pragma once
 
-#include "Machinish/kernel/syntax/expression/expression.h"
+#include "Machinish/kernel/syntax/expression/expression_template.h"
 
 namespace Machinish {
 
-struct Term : Expression {
+struct Term : ExpressionTemplate {
 	virtual ~Term() = default;
 	void dump() override;
 	std::string to_string() const override;
