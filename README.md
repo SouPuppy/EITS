@@ -14,17 +14,23 @@
 - **Context (Γ)** — Typing environment (Γ), tracking variable bindings
 - **Environment (ρ)** — Runtime environment (ρ), for evaluation and closures
 
-### Constructor & Eliminator
+### Types
 
 - **Pi / Π (Function Type)**
-	- Application — Elimination: `f a`
-	- λ-Abstraction — Introduction: `λx. t`
 - **Sigma / Σ (Dependent Pair)**
-	- Pairing — Introduction: `⟨a, b⟩`
-	- Projection — Elimination: `.1`, `.2`
 - **Id (Identity Type / Path)**
-	- `refl` — Reflexivity path constructor
-	- `J` — Path induction eliminator
+
+### Constructor
+
+- λ-Abstraction — Introduction: `λx. t`
+- Pairing — Introduction: `⟨a, b⟩`
+- `refl` — Reflexivity path constructor
+
+### Eliminator
+
+- Application — Elimination: `f a`
+- Projection — Elimination: `.$1`, `.$2`
+- `J` — Path induction eliminator
 
 ### Runtime
 
@@ -57,4 +63,8 @@ def two := (λf. λx. f (f x))
 }
 ```
 
+**`el`**
+
+```
 El(𝒰₀, ⟦Nat⟧)
+```

@@ -1,5 +1,8 @@
 // #include <iostream>
 
+#include "Machinish/kernel/syntax/expression/expression.h"
+#include "Machinish/kernel/syntax/expression/term.h"
+#include "Machinish/kernel/syntax/expression/type.h"
 #include <Machinish/Machinish.h>
 
 #include <logger.h>
@@ -26,13 +29,12 @@ int main() {
 	
 	// LOG(Type(2).to_string());
 
-	Pi p(make_shared<Type>(), make_shared<Type>(), make_shared<Type>());
-	Sigma s(make_shared<Type>(), make_shared<Type>(), make_shared<Type>());
-
-	DEBUG("Sigam " + s.to_string());
-	DEBUG("Pi " + p.to_string());
-
-	p.dump();
+	Expression e2 = make_shared<Sigma>(make_shared<Type>(), make_shared<Type>(), make_shared<Type>());
+	DEBUG("[Sigma Type] e2 " + e2.to_string());
+	
+	
+	Pi p(e2, make_shared<Type>(), make_shared<Type>());
+	DEBUG("[Pi Type] " + p.to_string());
 
 	runtime.add_def("ℕ", make_shared<Type>());
 	runtime.execute(Instruction::Dump);
