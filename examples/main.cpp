@@ -1,5 +1,6 @@
 // #include <iostream>
 
+#include "Machinish/kernel/syntax/binder.h"
 #include "Machinish/kernel/syntax/expression/expression.h"
 #include "Machinish/kernel/syntax/expression/term.h"
 #include "Machinish/kernel/syntax/expression/type.h"
@@ -18,6 +19,45 @@ int main() {
 	logger::init("log/example.log");
 	runtime.init();
 
+
+	// A : Type_0
+	Expression A = make_shared<Type>(Level(0));
+	LOG("A   - " + A.to_string());
+	
+	// B : Type_0
+	Expression B = make_shared<Type>(Level(0));
+	LOG("B   - " + B.to_string());
+
+	// a:A
+	Binder a = Binder("a", A);
+	LOG("a:A - " + a.to_string());
+	
+
+	// _:A
+	Binder _ = Binder("_", A);
+	LOG("_:A - " + _.to_string());
+	
+	// Pi x:A. B
+	Expression e1 = make_shared<Pi>(Binder("x", A), B);
+	LOG("Pi x:A. B - " + e1.to_string());
+
+
+	// Sigma x:A. B
+	Expression e2 = make_shared<Sigma>(Binder("x", A), B);
+	LOG("Sigma x:A. B - " + e2.to_string());
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// Pi A;
 	// Expression expr = make_shared<Type>(A);
 	// DEBUG("A " + A.to_string());
@@ -29,15 +69,15 @@ int main() {
 	
 	// LOG(Type(2).to_string());
 
-	Expression e2 = make_shared<Sigma>(make_shared<Type>(), make_shared<Type>(), make_shared<Type>());
-	DEBUG("[Sigma Type] e2 " + e2.to_string());
+	// Expression e2 = make_shared<Sigma>(make_shared<Type>(), make_shared<Type>(), make_shared<Type>());
+	// DEBUG("[Sigma Type] e2 " + e2.to_string());
 	
 	
-	Pi p(e2, make_shared<Type>(), make_shared<Type>());
-	DEBUG("[Pi Type] " + p.to_string());
+	// Pi p(e2, make_shared<Type>(), make_shared<Type>());
+	// DEBUG("[Pi Type] " + p.to_string());
 
-	runtime.add_def("ℕ", make_shared<Type>());
-	runtime.execute(Instruction::Dump);
+	// runtime.add_def("ℕ", make_shared<Type>());
+	// runtime.execute(Instruction::Dump);
 	//
 	// LOG("Reset Runtime");
 	// runtime.execute(Instruction::Reset);

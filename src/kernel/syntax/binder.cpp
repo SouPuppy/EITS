@@ -14,7 +14,10 @@ void Binder::dump() {
 }
 
 std::string Binder::to_string() const {
-  return name + " : " + type.to_string();
+	if (name == "")
+		return "_" + type.to_string();
+	else
+		return name + " : " + type.to_string();
 }
 
 void Binder::print(std::ostream &os) const { os << to_string(); }

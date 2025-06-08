@@ -3,22 +3,21 @@
 #pragma once
 
 #include "Machinish/kernel/syntax/expression/type.h"
-
+#include "Machinish/kernel/syntax/binder.h"
 #include "Machinish/kernel/syntax/expression/expression.h"
 
 namespace Machinish {
 
 struct Sigma : Type {
-  Expression binder;
-  Expression domain;
+  Binder binder;
   Expression codomain;
 
 	//NOTE - Add anonymous Sigma constructor
 	// Sigma(Expression binder, Expression domain, Expression codomain, Level level = Level::zero())
 	// 	: Type(level), binder(binder), domain(domain), codomain(codomain) {}
 
-	Sigma(Expression binder, Expression domain, Expression codomain, Level level = Level::zero())
-		: Type(level), binder(binder), domain(domain), codomain(codomain) {}
+	Sigma(Binder binder, Expression codomain, Level level = Level::zero())
+		: Type(level), binder(binder), codomain(codomain) {}
 	
 	~Sigma() override = default;
 	void dump() override;
