@@ -4,6 +4,7 @@
 
 #include <chrono>
 #include <mutex>
+#include <sstream>
 
 namespace Machinish::Internal {
 
@@ -43,5 +44,14 @@ uint64_t UIDGenerator::next() {
 	return ((timestamp & 0x1FFFFFFFFFF) << (machine_bits + sequence_bits)) |
 	       ((machine_id & 0x3FF) << sequence_bits) | (sequence & max_sequence);
 }
+
+std::string UIDGenerator::next_hex() {
+    uint64_t uid = next();
+    std::stringstream ss;
+    ss << "0x" << std::hex << std::uppercase << uid;
+    return ss.str();
+}
+
+UIDGenerator globalUIDGenerator;
 
 } // namespace Machinish::Internal

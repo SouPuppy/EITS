@@ -1,12 +1,19 @@
 // src/kerne/syntax/variable.cpp
 
 #include "Machinish/kernel/syntax/variable.h"
+#include "internal/uid/uid.h"
 #include <logger.h>
+
 using namespace logger::log;
 
 namespace Machinish {
 
 BoundVariable::BoundVariable(Expression type) : type(type) {}
+
+Variable::Variable() {
+	// name = std::to_string(Internal::globalUIDGenerator.next());
+	name = Internal::globalUIDGenerator.next_hex();
+}
 
 Variable::Variable(std::string name) : name(name), value(FreeVariable()) {}
 

@@ -16,17 +16,18 @@ struct BoundVariable {
 using VariableVariant = std::variant<FreeVariable, BoundVariable>;
 
 struct Variable {
-    std::string name;
-    VariableVariant value;
+	std::string name;
+	VariableVariant value;
 
-    Variable(std::string name);
-    Variable(std::string name, Expression type);
+	Variable();
+	Variable(std::string name);
+	Variable(std::string name, Expression type);
 
-    void dump();
-    std::string to_string() const;
-    void print(std::ostream& os = std::cout) const;
+	void dump();
+	std::string to_string() const;
+	void print(std::ostream& os = std::cout) const;
 
-		bool is_free();
+	bool is_free();
 };
 
 } // namespace Machinish

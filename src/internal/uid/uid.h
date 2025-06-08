@@ -3,6 +3,7 @@
 #pragma once
 
 #include <cstdint>
+#include <string>
 
 namespace Machinish::Internal {
 
@@ -15,6 +16,9 @@ struct UIDGenerator {
 	explicit UIDGenerator(uint16_t machine_id);
 
 	uint64_t next();
+	std::string next_hex();
 };
+
+extern UIDGenerator globalUIDGenerator;
 
 } // namespace Machinish::Internal

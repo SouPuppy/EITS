@@ -10,11 +10,12 @@ using namespace logger::log;
 Runtime runtime;
 
 int main() {
-	logger::init("log/example.log");
 	runtime.init();
 
 	Expression A = make_shared<Type>(Level(0));
-	Variable a("a", A);
+
+	// Variable a("a", A);
+	Variable a;
 	a.dump();
 
 	LOG("a is free?") << a.is_free();
