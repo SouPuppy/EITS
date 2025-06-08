@@ -8,6 +8,8 @@ add_library(machinish_kernel_syntax STATIC
 )
 
 target_link_libraries(machinish_kernel_syntax
+	PRIVATE
+		logger
   PUBLIC
     machinish_expression
 )

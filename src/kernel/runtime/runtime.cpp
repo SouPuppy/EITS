@@ -28,7 +28,7 @@ namespace Machinish {
 
 void Runtime::init() {
 	INFO("[Initiating Runtime]")
-	     << "  - Machinish kernel version: " + Machinish::Meta::version();
+	     << "Machinish kernel version: " + Machinish::Meta::version();
 	return ;
 }
 

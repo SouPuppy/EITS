@@ -1,6 +1,3 @@
-// #include <iostream>
-
-#include "Machinish/kernel/syntax/expression/expression.h"
 #include <Machinish/Machinish.h>
 
 #include <logger.h>
@@ -15,6 +12,12 @@ Runtime runtime;
 int main() {
 	logger::init("log/example.log");
 	runtime.init();
+
+	Expression A = make_shared<Type>(Level(0));
+	Variable a("a", A);
+	a.dump();
+
+	LOG("a is free?") << a.is_free();
 
 	// // A : Type_0
 	// Expression A = make_shared<Type>(Level(0));

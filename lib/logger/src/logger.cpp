@@ -106,7 +106,7 @@ void init(const std::string& log_path) {
 
 namespace logger::log {
 
-LogFactory LOG    ("LOG",    Format(BRIGHT_BLACK,   true, false, false));
+LogFactory LOG    ("INFO",   Format(BRIGHT_BLACK,   true, false, false));
 LogFactory INFO   ("INFO",   Format(BRIGHT_BLUE,    true, false, false));
 LogFactory WARNING("WARN",   Format(BRIGHT_YELLOW,  true, false, false));
 LogFactory DEBUG  ("DEBUG",  Format(BRIGHT_GREEN,   true, false, false));
