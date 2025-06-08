@@ -1,36 +1,35 @@
-#include <logger.h>
+#include <logger.h>  // Make sure this path matches your include directory
 
-// Use shorthand logging functions
 using namespace logger::log;
 
 int main() {
-	// Initialize logger with a custom file path (log/example.log)
-	logger::init("log/example.log");
+	// Initialize logging system; will create a log file under ./log/yyyy-mm-dd_HH-MM-SS.log
+	logger::init();
 
-	// Developer log: internal debug or verbose information
-	LOG("This is a DEV log message (usually low-level developer output).");
+	// Basic log with title, no payload
+	LOG("Default log with title");
 
-	// Informational message: general runtime status
-	INFO("Application started successfully.");
+	// Simple debug log with single line content
+	DEBUG << "This is a debug message.";
 
-	// Warning message: something might be wrong, but not critical
-	WARNING("Configuration file not found. Using defaults.");
+	// Multi-line log with a title
+	LOG("System Init") 
+		<< "Boot sequence started"
+		<< "Loading kernel..."
+		<< "Kernel loaded successfully.";
 
-	// Error message: critical problem occurred
-	ERROR("Failed to connect to the database.");
+	// One-liner stream (log header only, no title)
+	LOG << "line1" << "line2";
 
-	// Debug message: technical details for developers
-	DEBUG("User input received: 'example input'");
+	// Error and OK messages
+	ERROR("Startup failed") << "Missing configuration file: config.yaml";
+	OK("Startup successful") << "All services online.";
 
-	// Default format (same as INFO unless overridden)
-	logger::logger_default.log("This is a default log using the fallback format.",
-														 logger::DEFAULT);
+	// Warning with no payload
+	WARNING("Low memory detected");
 
-	// OK message: operation completed successfully
-	OK("Data processed successfully.");
-
-	// Failed message: operation did not complete successfully
-	FAILED("Data processing failed due to an unexpected error.");
+	// INFO with details
+	INFO("Launching service") << "Service: Database" << "Port: 5432";
 
 	return 0;
 }

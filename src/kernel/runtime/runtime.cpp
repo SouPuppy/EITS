@@ -27,9 +27,8 @@ void save_meta(std::ostream& out) {
 namespace Machinish {
 
 void Runtime::init() {
-	LOG("Initiating Runtime");
-	std::cout << "[Initiating Runtime]" << std::endl;
-	std::cout << "  - Machinish kernel version: " << Machinish::Meta::version() << std::endl;
+	INFO("[Initiating Runtime]")
+	     << "  - Machinish kernel version: " + Machinish::Meta::version();
 	return ;
 }
 
