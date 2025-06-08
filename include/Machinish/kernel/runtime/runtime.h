@@ -22,7 +22,7 @@ struct Runtime {
 	~Runtime() = default;
 	void init();
 
-	void add_def(std::string name, Expression expr);
+	void add_bind(std::string name, Expression expr);
 	
 	void execute(Instruction instr);
 	void handle_reset();

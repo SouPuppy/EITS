@@ -11,6 +11,7 @@
 // Core syntax tree: expressions, types, universes, variables
 #include <Machinish/kernel/basis/level.h>
 #include <Machinish/kernel/syntax/binder.h>
+#include <Machinish/kernel/syntax/variable.h>
 #include <Machinish/kernel/syntax/expression/expression.h>
 
 #include <Machinish/kernel/syntax/expression/type.h>

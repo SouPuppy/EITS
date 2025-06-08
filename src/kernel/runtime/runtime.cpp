@@ -33,7 +33,7 @@ void Runtime::init() {
 	return ;
 }
 
-void Runtime::add_def(std::string name, Expression expr) {
+void Runtime::add_bind(std::string name, Expression expr) {
 	ctx.add_binding(name, expr);
 }
 
