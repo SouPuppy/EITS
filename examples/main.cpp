@@ -1,39 +1,31 @@
-#include <Machinish/Machinish.h>
+#include <HoTT/HoTT.h>
 
 #include <logger.h>
 #include <memory>
 
 using namespace std;
-using namespace Machinish;
+using namespace EITS;
 using namespace logger::log;
 
 Runtime runtime;
 
 int main() {
 	runtime.init();
-
-	Expression A = make_shared<Type>(Level(0));
-
-	// Variable a("a", A);
-	Variable a;
-	a.dump();
-
-	LOG("a is free?") << a.is_free();
-
-	Context ctx;
-
-	ctx.add("a1", make_shared<Type>(1));
-	ctx.add("a2", make_shared<Type>(2));
-	ctx.extend();
-	ctx.add("a3", make_shared<Type>(3));
-
-	// ctx = ctx.extend("a3", make_shared<Type>(0));
-	ctx.dump();
-	ctx.lookup("a1");
-	ctx.lookup("a2");
-	ctx.lookup("a3");
+	Expression A = std::make_shared<Constant>("A", std::make_shared<Type>(0));
+	// DEBUG("A: " + A.to_string());
+	// Expression y = std::make_shared<Variable>("y", A);
+	// DEBUG("y: " + y.to_string());
+	//
+	// {
+	// 	auto x = std::make_shared<Variable>("x", A);
+	// 	DEBUG("x: " + x.to_string());
+	//
+	// 	Expression exp =
+	// 		Lambda(Binder("x", A), );
+	// 	DEBUG("exp: " + exp.to_string());
+	// }
 /*
-	#def e1 : (λx. x) y
+	#def e1 (:=) (λx : A. x) y : A
 
 	---
 	#type e1 :
@@ -45,6 +37,7 @@ int main() {
 		A : Type
 	}
 */
+
 /*
 	#def e2 : fst ⟨x, y⟩
 

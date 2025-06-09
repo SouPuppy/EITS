@@ -9,7 +9,7 @@ target_link_libraries(test_internal_uid
 )
 
 target_include_directories(test_internal_uid PRIVATE
-	${PROJECT_SOURCE_DIR}/src
+        ../../../eits-hott/src
 )
 
 add_test(NAME UIDGeneratorTests COMMAND test_internal_uid)

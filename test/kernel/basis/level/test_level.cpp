@@ -2,9 +2,9 @@
 
 #include <gtest/gtest.h>
 
-#include <Machinish/kernel/basis/level.h>
+#include <HoTT/core/basis/level.h>
 
-// using namespace Machinish::Kernel::Universe;
+// using namespace EITS::Kernel::Universe;
 
 // TEST(LevelTests, Zero) {
 //     Level l = zero();

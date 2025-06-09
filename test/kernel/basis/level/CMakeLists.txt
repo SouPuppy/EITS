@@ -5,11 +5,11 @@ add_executable(test_level
 target_link_libraries(test_level
 	PRIVATE
 		gtest_main
-		machinish
+		eits_hott
 )
 
 target_link_libraries(test_level PRIVATE
-	machinish_headers
+	eits_hott_headers
 )
 
 #FIXME - ?

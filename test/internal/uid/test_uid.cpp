@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 #include <set>
 
-using namespace Machinish::Internal;
+using namespace EITS::Internal;
 
 TEST(UIDGeneratorTest, MonotonicIncrease) {
     UIDGenerator gen(1);
