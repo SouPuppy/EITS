@@ -20,39 +20,99 @@ int main() {
 
 	LOG("a is free?") << a.is_free();
 
-	// // A : Type_0
-	// Expression A = make_shared<Type>(Level(0));
-	// LOG("A   - " + A.to_string());
+	Context ctx;
 
-	// // B : Type_0
-	// Expression B = make_shared<Type>(Level(0));
-	// LOG("B   - " + B.to_string());
+	ctx.add("a1", make_shared<Type>(1));
+	ctx.add("a2", make_shared<Type>(2));
+	ctx.extend();
+	ctx.add("a3", make_shared<Type>(3));
 
-	// // a:A
-	// Binder a = Binder("a", A);
-	// LOG("a:A - " + a.to_string());
+	// ctx = ctx.extend("a3", make_shared<Type>(0));
+	ctx.dump();
+	ctx.lookup("a1");
+	ctx.lookup("a2");
+	ctx.lookup("a3");
+/*
+	#def e1 : (λx. x) y
 
-	// // _:A
-	// Binder _ = Binder("_", A);
-	// LOG("_:A - " + _.to_string());
+	---
+	#type e1 :
+	Π x : A, A
 
-	// // Pi x:A. B
-	// Expression e1 = make_shared<Pi>(Binder("x", A), B);
-	// LOG("Pi x:A. B - " + e1.to_string());
+	#context
+	Γ = {
+		y : A,
+		A : Type
+	}
+*/
+/*
+	#def e2 : fst ⟨x, y⟩
 
-	// // Sigma x:A. B
-	// Expression e2 = make_shared<Sigma>(Binder("x", A), B);
-	// LOG("Sigma x:A. B - " + e2.to_string());
+	---
+	#type e2 :
+	A
 
-	// // runtime.add_bind("A", A);
-	// // runtime.execute(Instruction::Dump);
-	
-	// // Id A a b
-	// Expression e3 = make_shared<Id>(A, a.type, a.type);
-	// LOG("Id A a a - " + e3.to_string());
+	#context
+	Γ = {
+		x : A,
+		y : B x,
+		A : Type,
+		B : A → Type
+	}
+*/
+/*
+	#def e3 : snd ⟨x, y⟩
 
+	---
+	#type e3 :
+	B x
 
-	// Expression = Lambda(Variable("x"), A, B);
+	#context
+	Γ = {
+		x : A,
+		y : B x,
+		A : Type,
+		B : A → Type
+	}
+*/
+/*
+	#def e4 : (λf. f z) (λx. x)
+
+	---
+	#type e4 :
+	A
+
+	#context
+	Γ = {
+		z : A,
+		A : Type
+	}
+*/
+/*
+	#def e5 : λx. ⟨x, x⟩
+
+	---
+	#type e5 :
+	Π x : A, Σ y : A, A
+
+	#context
+	Γ = {
+		A : Type
+	}
+*/
+/*
+	#def e6 : ⟨x, x⟩
+
+	---
+	#type e6 :
+	Σ y : A, A
+
+	#context
+	Γ = {
+		x : A,
+		A : Type
+	}
+*/
 
 	return 0;
 }

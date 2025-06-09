@@ -4,7 +4,7 @@ add_library(machinish_kernel_semantics STATIC
   value.cpp
 )
 
-add_subdirectory(constructor)
+add_subdirectory(term)
 add_subdirectory(eliminator)
 
 target_link_libraries(machinish_kernel_semantics

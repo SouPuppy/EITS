@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Machinish/kernel/syntax/expression/expression.h"
+#include "Machinish/kernel/syntax/expression/term.h"
 #include <variant>
 
 namespace Machinish {
@@ -15,7 +16,7 @@ struct BoundVariable {
 
 using VariableVariant = std::variant<FreeVariable, BoundVariable>;
 
-struct Variable {
+struct Variable : Term {
 	std::string name;
 	VariableVariant value;
 

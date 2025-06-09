@@ -1,6 +1,6 @@
 // src/kerne/syntax/variable.cpp
 
-#include "Machinish/kernel/syntax/variable.h"
+#include "../../../include/Machinish/kernel/syntax/expression/term/variable.h"
 #include "internal/uid/uid.h"
 #include <logger.h>
 
@@ -37,7 +37,7 @@ std::string Variable::to_string() const {
 }
 
 void Variable::print(std::ostream& os) const {
-	os << to_string() << std::endl;
+	os << to_string();
 }
 
 bool Variable::is_free() {

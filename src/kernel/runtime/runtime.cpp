@@ -27,13 +27,13 @@ void save_meta(std::ostream& out) {
 namespace Machinish {
 
 void Runtime::init() {
-	INFO("[Initiating Runtime]")
+	INFO("Initiating Runtime...")
 	     << "Machinish kernel version: " + Machinish::Meta::version();
 	return ;
 }
 
-void Runtime::add_bind(std::string name, Expression expr) {
-	ctx.add_binding(name, expr);
+void Runtime::add_bind(std::string name, std::shared_ptr<Type> type) {
+	ctx.add(name, type);
 }
 
 void Runtime::execute(Instruction instruction) {

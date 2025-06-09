@@ -1,8 +1,6 @@
 // include/Machinish/kernel/semantics/constructor/lambda.h
 
-#pragma once
-
-// #include 
+#include "Machinish/kernel/syntax/expression/term/lambda.h"
 
 namespace Machinish {
 
