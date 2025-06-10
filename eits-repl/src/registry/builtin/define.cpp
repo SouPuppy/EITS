@@ -1,5 +1,8 @@
 // registry/builtin/history.cpp
+
 #include "registry/registry.h"
+
+#include <HoTT/HoTT.h>
 
 #include <logger.h>
 
