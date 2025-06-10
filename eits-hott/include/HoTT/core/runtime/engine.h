@@ -11,6 +11,9 @@ struct Engine {
 	
 	Engine();
 	void init();
+
+	// commands
+	void define(std::string expr);
 };
 
 } // namespace EITS
