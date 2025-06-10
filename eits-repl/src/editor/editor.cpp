@@ -1,8 +1,5 @@
 #include "editor.h"
 
-#include <string>
-#include <vector>
-#include <unordered_map>
 #include <termios.h>
 #include <unistd.h>
 #include <chrono>
