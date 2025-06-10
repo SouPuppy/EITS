@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 class History;
 
 // Returns true if the command is "exit"

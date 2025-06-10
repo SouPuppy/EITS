@@ -3,6 +3,7 @@
 #include <termios.h>
 #include <unistd.h>
 #include <chrono>
+#include <unordered_map>
 #include <optional>
 #include <sys/ioctl.h>	// For ioctl()
 #include <unistd.h>			// For STDOUT_FILENO

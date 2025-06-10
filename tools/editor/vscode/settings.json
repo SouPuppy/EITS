@@ -1,10 +1,29 @@
 {
-	// explorer
+	// Sort files in the explorer by type for better organization
 	"explorer.sortOrder": "type",
-	// clangd
+
+	// Pass additional arguments to clangd
 	"clangd.arguments": [
 		"--compile-commands-dir=build"
 	],
-	// CMake
+
+	// Set the default build output directory for CMake
 	"cmake.buildDirectory": "${workspaceFolder}/build",
+
+	// Prevent cmake-build directory from being shown in Explorer
+	"files.exclude": {
+		"cmake-build-*": true,
+		".idea": true,
+		".cache": true,
+	},
+
+	// Prevent build directory from being searched
+	"search.exclude": {
+		"**/build": true,
+	},
+
+	// Prevent file watcher from tracking changes in these files (performance boost)
+	"files.watcherExclude": {
+		"**/build/**": true,
+	},
 }

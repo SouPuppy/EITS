@@ -1,7 +1,7 @@
 // include/EITS/basis/levelType.h
 
 #pragma once
-#include <cstddef>
+
 #include <memory>
 #include <string>
 #include <variant>
