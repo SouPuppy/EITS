@@ -1,4 +1,4 @@
-#include "repl/registry.h"
+#include "registry/registry.h"
 #include <iomanip>
 #include <iostream>
 

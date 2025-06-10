@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "repl/registry.h"
+#include "../registry/registry.h"
 
 // Define command handler type
 

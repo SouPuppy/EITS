@@ -1,5 +1,5 @@
 // command/builtin/history.cpp
-#include "repl/registry.h"
+#include "registry/registry.h"
 
 void registerHistoryCommand() {
 	registerCommand("history", [](const std::string& arg, HistoryManager& history) {

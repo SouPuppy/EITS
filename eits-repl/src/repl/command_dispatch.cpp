@@ -1,7 +1,7 @@
 #include "command_dispatch.h"
 #include "editor/editor.h"
 #include "history/history.h"
-#include "repl/registry.h"
+#include "../registry/registry.h"
 
 #include <HoTT/HoTT.h>
 #include <logger.h>

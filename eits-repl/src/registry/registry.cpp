@@ -12,10 +12,12 @@ std::unordered_map<std::string, CommandFunc>& getCommandTable() {
 }
 
 void registerHistoryCommand();
+void registerClearCommand();
 void registerHelpCommand();
 void registerExitCommand();
 
 void registerBuiltinCommands() {
+	registerClearCommand();
 	registerHistoryCommand();
 	registerHelpCommand();
 	registerExitCommand();
