@@ -10,7 +10,7 @@ add_library(eits_hott_kernel_runtime STATIC
 
 target_include_directories(eits_hott_kernel_runtime
   PRIVATE
-        ../..
+    ${CMAKE_CURRENT_SOURCE_DIR}/../..
 )
 
 target_link_libraries(eits_hott_kernel_runtime
