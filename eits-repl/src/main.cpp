@@ -9,13 +9,13 @@ using namespace logger::log;
 
 // Global runtime and history instances
 EITS::Runtime runtime;
-History history;
+HistoryManager history;
 
 // Main REPL loop
 void runREPL() {
 	std::string line;
 	while (true) {
-		std::cout << "> ";
+		std::cout << "In[" << history.get_next_id() << "]: ";
 		if (!std::getline(std::cin, line)) {
 			std::cout << std::endl;
 			break;
