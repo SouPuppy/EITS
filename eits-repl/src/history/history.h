@@ -4,32 +4,34 @@
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <iomanip>
 
-enum CommandType {
-	// HoTT command
-	Define,
-	Eval,
+// enum CommandType {
+// 	// HoTT command
+// 	Define,
+// 	Eval,
 
-	// REPL commands
-	History,
-	Help,
-	Exit,
-	Unkown,
-};
+// 	// REPL commands
+// 	History,
+// 	Help,
+// 	Exit,
+// 	Unkown,
+// };
 
-inline std::string CommandType_to_string(const CommandType& cmd) {
-	switch (cmd) {
-		case CommandType::Define:		return "def";
-		case CommandType::History:	return "history";
-		case CommandType::Help:			return "help";
-		case CommandType::Exit:			return "exit";
-		default:					        	return "unknown";
-	}
-}
+// inline std::string CommandType_to_string(const CommandType& cmd) {
+// 	switch (cmd) {
+// 		case CommandType::Define:		return "def";
+// 		case CommandType::History:	return "history";
+// 		case CommandType::Help:			return "help";
+// 		case CommandType::Exit:			return "exit";
+// 		default:					        	return "unknown";
+// 	}
+// }
 
 struct HistoryLine {
 	int id;
-	CommandType cmd_type;
+	// CommandType cmd_type;
+	std::string command;
 	std::string expr;
 	// HistoryLine();
 };
@@ -39,7 +41,7 @@ struct HistoryManager {
 	std::vector<HistoryLine> histories;
 
 	// add
-	void add(CommandType cmd, std::string expr = "");
+	void add(std::string cmd, std::string expr = "");
 	void dump(int n) {
 		int dump_total = std::min<int>(n, static_cast<int>(histories.size()));
 		std::cout << "\n\033[1mHistories (" << n << " recent):\033[0m\n";
@@ -47,7 +49,7 @@ struct HistoryManager {
 		auto it = histories.rbegin();
 
 		while (dump_total > 0 && it != histories.rend()) {
-			std::cout << " ~" << i << ": " << it->expr << "\n";
+			std::cout << " ~" << i << ": " << it->command << it->expr << "\n";
 			++it;
 			++i;
 			--dump_total;

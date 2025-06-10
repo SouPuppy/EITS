@@ -1,11 +1,10 @@
 #include "command_dispatch.h"
 #include "editor/editor.h"
 #include "history/history.h"
-#include "../registry/registry.h"
+#include "registry/registry.h"
 
 #include <HoTT/HoTT.h>
 #include <logger.h>
-#include <iomanip>
 #include <iostream>
 #include <sstream>
 
@@ -70,18 +69,20 @@ bool dispatchCommand(const std::string& line, HistoryManager& history) {
 	if (it != table.end()) {
 		it->second(args, history);
 	} else {
+		ERROR("[Unknown command]") << command;
 		std::cout << "[Unknown command] Try 'help'\n";
 	}
 	return false;
 }
 
-// Dispatch multiple REPL commands (e.g., from editor)
+// Dispatch multiple REPL commands as a single input joined by \n
 bool dispatchCommand(const std::vector<std::string>& lines, HistoryManager& history) {
-	bool shouldExit = false;
-	for (const auto& line : lines) {
-		if (dispatchCommand(line, history)) {
-			shouldExit = true;
+	std::string joined;
+	for (size_t i = 0; i < lines.size(); i++) {
+		joined += lines[i];
+		if (i + 1 < lines.size()) {
+			joined += " ";
 		}
 	}
-	return shouldExit;
+	return dispatchCommand(joined, history);
 }

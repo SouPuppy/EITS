@@ -1,4 +1,4 @@
-// command/builtin/history.cpp
+// registry/builtin/history.cpp
 #include "registry/registry.h"
 
 void registerHistoryCommand() {
@@ -18,6 +18,6 @@ void registerHistoryCommand() {
 			}
 		}
 		history.dump(n);
-		history.add(CommandType::History, "history" + (arg.empty() ? "" : " " + arg));
+		history.add("history", (arg.empty() ? "" : " " + arg));
 	});
 }

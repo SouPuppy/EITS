@@ -1,4 +1,4 @@
-// command/registry.cpp
+// registry/registry.cpp
 #include "registry.h"
 
 static std::unordered_map<std::string, CommandFunc> commandTable;
@@ -11,12 +11,14 @@ std::unordered_map<std::string, CommandFunc>& getCommandTable() {
 	return commandTable;
 }
 
+void registerDefineCommand();
 void registerHistoryCommand();
 void registerClearCommand();
 void registerHelpCommand();
 void registerExitCommand();
 
 void registerBuiltinCommands() {
+	registerDefineCommand();
 	registerClearCommand();
 	registerHistoryCommand();
 	registerHelpCommand();
