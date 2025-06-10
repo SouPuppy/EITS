@@ -1,8 +1,9 @@
 #include "repl/command_dispatch.h"
 #include "history/history.h"
 #include <HoTT/HoTT.h>
-#include <iostream>
 #include <string>
+
+#include "editor/editor.h"
 
 #include <logger.h>
 using namespace logger::log;
@@ -11,18 +12,12 @@ using namespace logger::log;
 EITS::Runtime runtime;
 HistoryManager history;
 
-// Main REPL loop
 void runREPL() {
-	std::string line;
 	while (true) {
-		std::cout << "In[" << history.get_next_id() << "]: ";
-		if (!std::getline(std::cin, line)) {
-			std::cout << std::endl;
-			break;
-		}
-		if (dispatchCommand(line, history)) {
-			break;
-		}
+		auto result = launchSingleLineEditor(history.get_next_id());
+		if (!result.has_value()) break;
+		std::string& line = *result;
+		if (dispatchCommand(line, history)) break;
 	}
 }
 

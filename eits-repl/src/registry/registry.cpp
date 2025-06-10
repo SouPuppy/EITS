@@ -11,14 +11,22 @@ std::unordered_map<std::string, CommandFunc>& getCommandTable() {
 	return commandTable;
 }
 
-void registerDefineCommand();
+void registerDefCommand();
+void registerTypeCommand();
+void registerEvalCommand();
+void registerContextCommand();
+
 void registerHistoryCommand();
 void registerClearCommand();
 void registerHelpCommand();
 void registerExitCommand();
 
 void registerBuiltinCommands() {
-	registerDefineCommand();
+	registerDefCommand();
+	registerTypeCommand();
+	registerEvalCommand();
+	registerContextCommand();
+
 	registerClearCommand();
 	registerHistoryCommand();
 	registerHelpCommand();

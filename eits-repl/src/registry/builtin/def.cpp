@@ -8,7 +8,7 @@
 
 using namespace logger::log;
 
-void registerDefineCommand() {
+void registerDefCommand() {
 	registerCommand("def", [](const std::string& arg, HistoryManager& history) {
 		DEBUG("def") << arg << ";";
 		history.add("def", (arg.empty() ? "" : " " + arg));

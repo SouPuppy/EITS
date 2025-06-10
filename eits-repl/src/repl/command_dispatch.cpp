@@ -62,17 +62,17 @@ bool dispatchCommand(const std::string& line, HistoryManager& history) {
 		dispatchCommand(result.value(), history);
 		return false;
 	}
-
-	// Lookup and execute registered command
-	auto& table = getCommandTable();
-	auto it = table.find(command);
-	if (it != table.end()) {
-		it->second(args, history);
-	} else {
-		ERROR("[Unknown command]") << command;
-		std::cout << "[Unknown command] Try 'help'\n";
+	else {
+		// Lookup and execute registered command
+		auto& table = getCommandTable();
+		auto it = table.find(command);
+		if (it != table.end()) {
+			it->second(args, history);
+		} else {
+			std::cout << "[Unknown command] Try 'help'\n";
+		}
+		return false;
 	}
-	return false;
 }
 
 // Dispatch multiple REPL commands as a single input joined by \n
