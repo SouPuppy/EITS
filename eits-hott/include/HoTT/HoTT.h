@@ -7,6 +7,7 @@
 
 // Runtime system entry point (REPL, dispatch, reset)
 #include <HoTT/core/runtime/runtime.h>
+#include <HoTT/core/runtime/engine.h>
 
 // Core syntax tree: expressions, types, universes, variables
 #include <HoTT/core/basis/level.h>

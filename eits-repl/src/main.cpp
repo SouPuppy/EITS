@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 
+#include <logger.h>
+using namespace logger::log;
+
 // Global runtime and history instances
 EITS::Runtime runtime;
 History history;
