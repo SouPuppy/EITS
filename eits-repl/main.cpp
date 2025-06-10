@@ -1,12 +1,18 @@
-// eits-repl/main.cpp
+#include <iostream>
+#include "editor.h"
 
-#include <logger.h>
+int main() {
+    auto result = launchEditor();
+    if (!result) {
+        std::cerr << "Error: Terminal height too small. Please resize your window.\n";
+        return -1;
+    }
 
-using namespace std;
-using namespace logger::log;
+    std::cout << "\nYou've Input\n";
+    for (const auto& line : *result) {
+        std::cout << line << '\n';
+    }
 
-int main(int argc, char* argv[]) {
-  logger::init("log/.eits-repl.log");
-
-  return 0;
+    return 0;
 }
+
