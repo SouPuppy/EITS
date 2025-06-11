@@ -18,13 +18,13 @@ enum class TokenType {
 
 inline const char* to_string(TokenType t) {
   switch (t) {
-		case TokenType::IDENTIFIER:  		return "IDENTIFIER";
-		case TokenType::NUMBER:       		return "NUMBER";
-		case TokenType::TYPE:        		return "TYPE";
-		case TokenType::COLON:       		return "COLON";
-		case TokenType::EOF_TOKEN:   		return "EOF";
-		case TokenType::INVALID_TOKEN: 	return "INVALID";
-		default:                     		return "UNKNOWN";
+		case TokenType::IDENTIFIER:     return "IDENTIFIER";
+		case TokenType::NUMBER:         return "NUMBER";
+		case TokenType::TYPE:           return "TYPE";
+		case TokenType::COLON:          return "COLON";
+		case TokenType::EOF_TOKEN:      return "EOF";
+		case TokenType::INVALID_TOKEN:  return "INVALID";
+		default:                        return "UNKNOWN";
   }
 }
 

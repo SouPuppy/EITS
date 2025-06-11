@@ -1,5 +1,0 @@
-namespace EITS {
-
-
-
-} // namespace EITS
