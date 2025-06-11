@@ -10,7 +10,11 @@ using namespace logger::log;
 
 void registerDefCommand() {
 	registerCommand("def", [](const std::string& arg, HistoryManager& history) {
-		DEBUG("def") << arg << ";";
+		// DEBUG("def") << arg << ";";
+		
+		EITS::Lexer lexer(arg);
+		lexer.all();
+
 		history.add("def", (arg.empty() ? "" : " " + arg));
 	});
 }

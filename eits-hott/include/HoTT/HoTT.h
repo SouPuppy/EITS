@@ -31,3 +31,7 @@
 
 // Error system: type errors, evaluation errors, source reporting
 #include <HoTT/core/error/error.h>
+
+// Parser
+#include <HoTT/core/parser/parser.h>
+#include <HoTT/core/parser/lexer/lexer.h>

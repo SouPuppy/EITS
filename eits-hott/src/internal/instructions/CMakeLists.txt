@@ -1,7 +1,7 @@
 # src/internal/instructions/CMakeLists.txt
 
 add_library(internal_instructions STATIC
-        snapshot.cpp
+	snapshot.cpp
 )
 
 target_link_libraries(internal_instructions
@@ -12,10 +12,5 @@ target_link_libraries(internal_instructions
 
 target_include_directories(internal_instructions
   PRIVATE
-        ../..
-)
-
-target_include_directories(internal_instructions 
-	PUBLIC
-        .
+		../..
 )
