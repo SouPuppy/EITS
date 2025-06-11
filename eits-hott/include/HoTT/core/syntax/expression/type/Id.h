@@ -13,10 +13,7 @@ struct Id : Type {
 
 	~Id() override = default;
 	Id(Expression _base, Expression lhs, Expression rhs)
-		: base(_base) {
-		endpoint[0] = lhs;
-		endpoint[1] = rhs;
-	}
+	    : base(std::move(_base)), endpoint{std::move(lhs), std::move(rhs)} {}
 
 	inline Expression lhs() const { return endpoint[0]; }
 	inline Expression rhs() const { return endpoint[1]; }

@@ -11,6 +11,9 @@ std::unordered_map<std::string, CommandFunc>& getCommandTable() {
 	return commandTable;
 }
 
+void registerSaveCommand();
+void registerLoadCommand();
+
 void registerDefCommand();
 void registerTypeCommand();
 void registerEvalCommand();
@@ -22,6 +25,9 @@ void registerHelpCommand();
 void registerExitCommand();
 
 void registerBuiltinCommands() {
+	registerSaveCommand();
+	registerLoadCommand();
+
 	registerDefCommand();
 	registerTypeCommand();
 	registerEvalCommand();

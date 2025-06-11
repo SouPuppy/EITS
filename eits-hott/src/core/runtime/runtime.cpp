@@ -69,13 +69,29 @@ void Runtime::handle_load() {
 }
 
 void Runtime::handle_save() {
-	std::string label = "snapshot";
-	auto current_dir = std::filesystem::current_path();
-	auto file_path = current_dir / (label + ".omac");
+	std::string default_dir = std::filesystem::current_path();
+	std::string default_name = "snapshot";
 
-	if (!std::filesystem::exists(current_dir)) {
-		std::filesystem::create_directories(current_dir);
+	std::cout << "Save directory (" << default_dir << "): ";
+	std::string input_dir;
+	std::getline(std::cin, input_dir);
+	std::filesystem::path save_dir = input_dir.empty() ? default_dir : input_dir;
+
+	std::cout << "Snapshot name (" << default_name << "): ";
+	std::string input_name;
+	std::getline(std::cin, input_name);
+	std::string label = input_name.empty() ? default_name : input_name;
+
+	if (!std::filesystem::exists(save_dir)) {
+		try {
+			std::filesystem::create_directories(save_dir);
+		} catch (const std::exception& e) {
+			std::cerr << "[Error] Failed to create directory: " << e.what() << std::endl;
+			return;
+		}
 	}
+
+	auto file_path = save_dir / (label + ".omac");
 
 	std::ofstream out(file_path, std::ios::out | std::ios::trunc);
 	if (!out) {
@@ -83,10 +99,15 @@ void Runtime::handle_save() {
 		return;
 	}
 
+	DEBUG("Saving") << file_path;
+
 	ContextSnapshot snap = create_snapshot(ctx, label);
 	save_meta(out);
 	save_context(snap, out);
+
+	std::cout << "[OK] Snapshot saved: " << file_path << std::endl;
 }
+
 
 void Runtime::handle_exit() {
 	exit(0);

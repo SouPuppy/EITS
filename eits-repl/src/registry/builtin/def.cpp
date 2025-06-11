@@ -4,17 +4,23 @@
 
 #include <HoTT/HoTT.h>
 
+#include "common.h"
+
 #include <logger.h>
 
 using namespace logger::log;
 
 void registerDefCommand() {
 	registerCommand("def", [](const std::string& arg, HistoryManager& history) {
-		// DEBUG("def") << arg << ";";
+		if (arg.empty()) {
+			ERROR("def no arg");
+			return ;
+		}
 		
 		EITS::Lexer lexer(arg);
-		lexer.all();
-
-		history.add("def", (arg.empty() ? "" : " " + arg));
+		EITS::Parser parser(lexer);
+		auto expr = parser.parse_annotated();
+		runtime.add_bind(expr->name, expr->type);
+		history.add("def ", arg);
 	});
 }

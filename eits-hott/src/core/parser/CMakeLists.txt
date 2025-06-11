@@ -13,6 +13,7 @@ add_library(eits_hott_kernel_parser STATIC
 target_link_libraries(eits_hott_kernel_parser
 	PRIVATE
 		logger
+		internal_charutil
   PUBLIC
 		eits_hott_kernel_lexer
 		internal_instructions

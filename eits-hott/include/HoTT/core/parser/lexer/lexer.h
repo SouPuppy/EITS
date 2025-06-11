@@ -1,4 +1,4 @@
-#pragma oance
+#pragma once
 
 #include "HoTT/core/parser/lexer/dfa/dfa_identifier.h"
 

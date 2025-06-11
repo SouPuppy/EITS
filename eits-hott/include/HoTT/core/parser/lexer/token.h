@@ -16,7 +16,7 @@ enum class TokenType {
 	INVALID_TOKEN,
 };
 
-inline const char* to_string(TokenType t) {
+inline std::string to_string(TokenType t) {
   switch (t) {
 		case TokenType::IDENTIFIER:     return "IDENTIFIER";
 		case TokenType::NUMBER:         return "NUMBER";

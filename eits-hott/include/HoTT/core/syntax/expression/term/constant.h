@@ -17,6 +17,9 @@ struct Constant : Term{
 	std::string to_string() const override {
 		return "`" + name + "` : " + type->to_string();
 	}
+	void dump() override {
+		std::cout << "[Constant] " << to_string() << "\n";
+	}
 };
 
 }; // namespace EITS
