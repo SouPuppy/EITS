@@ -1,22 +1,22 @@
 #include "HoTT/core/parser/lexer/dfa/dfa_base.h"
-#include "HoTT/core/parser/lexer/dfa/dfa_identifier.h"
+#include "HoTT/core/parser/lexer/dfa/dfa_number.h"
 #include "charutil.h"
 namespace EITS {
 
-void DFAIdentifier::reset() { state = State::START; buffer.clear(); accepting = false; }
+void DFANumber::reset() { state = State::START; buffer.clear(); accepting = false; }
 
-DFAResultType DFAIdentifier::feed(char32_t ch) {
+DFAResultType DFANumber::feed(char32_t ch) {
 	switch (state) {
 		case State::START:
-			if (CharUtil::isAlpha(ch)) {
-				state = State::BODY;
+			if (CharUtil::isDigit(ch)) {
+				state = State::INTEGER;
 				buffer += ch;
 				accepting = true;
 				return DFAResultType::CONTINUE;
 			}
 			return DFAResultType::ERROR;
-		case State::BODY:
-			if (CharUtil::isAlpha(ch)) {
+		case State::INTEGER:
+			if (CharUtil::isDigit(ch)) {
 				buffer += ch;
 				accepting = true;
 				return DFAResultType::CONTINUE;
@@ -26,6 +26,6 @@ DFAResultType DFAIdentifier::feed(char32_t ch) {
 	}
 }
 
-bool DFAIdentifier::isAccepting() const { return accepting; }
+bool DFANumber::isAccepting() const { return accepting; }
 
 } // namespace EITS

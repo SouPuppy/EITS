@@ -4,10 +4,10 @@
 
 namespace EITS {
 
-struct DFAIdentifier : DFA {
+struct DFANumber : DFA {
 	enum class State {
 		START,
-		BODY,
+		INTEGER,
 		DONE,
 		ERROR,
 	};

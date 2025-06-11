@@ -2,49 +2,51 @@
 #include "HoTT/core/parser/lexer/token.h"
 
 #include <logger.h>
+#include <unordered_map>
 #include <string>
 #include <vector>
-#include "utf8_decoder.h"
+#include <iostream>
 
 using namespace logger::log;
 
+// Simple keyword lookup table
+inline const std::unordered_map<std::u32string, EITS::TokenType> keywordTable = {
+	{U"Type", EITS::TokenType::TYPE}
+};
+
 namespace EITS {
 
-Lexer::Lexer(const std::string& src) : scanner(src) {
-
-	source = decode_utf8(src);
-
-	DEBUG("Lexer [string32]") << to_utf8(source);
-}
+Lexer::Lexer(const std::string& src) : scanner(src) {}
 
 Token Lexer::nextToken() {
 	scanner.skipWhitespace();
-	if (scanner.isAtEnd()) { return Token(TokenType::EOF_TOKEN, U"", scanner.getLine()); }
-	idDFA.reset();
-	std::u32string buffer;
-	char32_t c = scanner.peek();
-	DFAResultType res = idDFA.feed(c);
 
-	if (res == DFAResultType::CONTINUE) {
-		buffer += scanner.advance();
-		while (!scanner.isAtEnd()) {
-			c = scanner.peek();
-			res = idDFA.feed(c);
-			if (res == DFAResultType::CONTINUE) {
-				buffer += scanner.advance();
-			} else if (res == DFAResultType::ACCEPT) {
-				break;
-			} else {
-				break;
-			}
-		}
-		return Token(TokenType::IDENTIFIER, buffer, scanner.getLine());
+	if (scanner.isAtEnd()) {
+		return Token(TokenType::EOF_TOKEN, U"", scanner.getLine(), scanner.getColumn());
 	}
 
-	// fallback: invalid token
-	buffer += scanner.advance();
-	return Token(TokenType::INVALID_TOKEN, buffer, scanner.getLine());
+	int startLine = scanner.getLine();
+	int startCol = scanner.getColumn();
+
+	auto result = strategies.tryAll(scanner);
+	if (result.has_value()) {
+		auto [type, lexeme] = result.value();
+
+		if (type == TokenType::IDENTIFIER) {
+			auto it = keywordTable.find(lexeme);
+			if (it != keywordTable.end()) {
+				type = it->second;
+			}
+		}
+
+		scanner.consume(lexeme.size());
+		return Token(type, lexeme, startLine, startCol);
+	}
+
+	char32_t c = scanner.advance();
+	return Token(TokenType::INVALID_TOKEN, std::u32string{c}, startLine, startCol);
 }
+
 
 std::vector<Token> Lexer::all() {
   std::vector<Token> tokens;
@@ -52,8 +54,11 @@ std::vector<Token> Lexer::all() {
 		Token token = nextToken();
 		tokens.push_back(token);
 		if (token.type == TokenType::EOF_TOKEN) break;
-		token.dump();
 	}
+
+// Dump All
+	std::cout << "TOKEN TYPE  LEXME            @ line, offset\n";
+	for (auto &token: tokens) token.dump();
 
 	return tokens;
 }
