@@ -16,9 +16,9 @@ struct Parser {
 	size_t index = 0;
 	std::vector<Token> tokens;
 
-	std::shared_ptr<Expression> parse_expr();
-	std::shared_ptr<Type> parse_type();
-	std::shared_ptr<Constant> parse_annotated();
+	std::shared_ptr<Expression> parse_expr(const Context& ctx);
+	std::shared_ptr<Type> parse_type(const Context& ctx);
+	std::shared_ptr<Constant> parse_annotated(const Context& ctx);
 	
 	Token peek(int offset = 0) const;
 	Token consume();

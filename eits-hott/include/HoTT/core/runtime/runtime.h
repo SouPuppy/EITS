@@ -22,7 +22,7 @@ struct Runtime {
 	~Runtime() = default;
 	void init();
 
-	void add_bind(std::string name, std::shared_ptr<Type> type);
+	void add_bind(std::string name, std::shared_ptr<Expression> expr);
 	
 	void execute(Instruction instr);
 	void handle_reset();

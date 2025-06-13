@@ -8,6 +8,7 @@
 #include <filesystem>
 #include <map>
 
+#include "HoTT/core/syntax/expression/expression.h"
 #include "HoTT/meta/version.h"
 #include "HoTT/core/semantics/context.h"
 #include "internal/instructions/snapshot.h"
@@ -32,8 +33,8 @@ void Runtime::init() {
 	return ;
 }
 
-void Runtime::add_bind(std::string name, std::shared_ptr<Type> type) {
-	ctx.add(name, type);
+void Runtime::add_bind(std::string name, std::shared_ptr<Expression> expr) {
+	ctx.add(name, expr);
 }
 
 void Runtime::execute(Instruction instruction) {

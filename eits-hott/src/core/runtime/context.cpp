@@ -12,13 +12,13 @@ namespace EITS {
 
 void Context::clear() { gamma.clear(); }
 
-int Context::add(const std::string &name, std::shared_ptr<Type> type) {
+int Context::add(const std::string &name, std::shared_ptr<Expression> expr) {
 	// binding exists
 	if (gamma.find(name) != gamma.end()) {
 		WARNING("Variable " + name + " is already bound in the context.");
 		return 1;
 	}
-	gamma[name] = type;
+	gamma[name] = expr;
 	return 0;
 }
 
@@ -30,7 +30,7 @@ void Context::extend() {
 }
 
 
-std::optional<std::shared_ptr<Type>> Context::lookup(const std::string &name) const {
+std::optional<std::shared_ptr<Expression>> Context::lookup(const std::string &name) const {
 	std::shared_ptr<Context> p = std::make_shared<Context>(*this);
 	while (p->gamma.find(name) == p->gamma.end() && p->parent != nullptr) p = p->parent;
 	auto it = p->gamma.find(name);
