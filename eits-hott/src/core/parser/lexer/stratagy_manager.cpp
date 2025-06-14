@@ -3,7 +3,6 @@
 
 #include "HoTT/core/parser/lexer/stratagy/identifier_stratagy.h"
 #include "HoTT/core/parser/lexer/stratagy/number_stratagy.h"
-#include "HoTT/core/parser/lexer/stratagy/colon_stratagy.h"
 
 
 #include "HoTT/core/parser/lexer/token.h"
@@ -21,16 +20,12 @@ TokenType StrategyManager::resolveTokenType(const std::unique_ptr<LexerStrategy>
 	if (dynamic_cast<NumberStrategy *>(strat.get())) {
     return TokenType::NUMBER;
   }
-	if (dynamic_cast<ColonStrategy *>(strat.get())) {
-    return TokenType::COLON;
-  }
   return TokenType::INVALID_TOKEN;
 }
 
 StrategyManager::StrategyManager() {
   strategies.push_back(std::make_unique<IdentifierStrategy>());
   strategies.push_back(std::make_unique<NumberStrategy>());
-  strategies.push_back(std::make_unique<ColonStrategy>());
 }
 
 std::optional<std::pair<TokenType, std::u32string>> StrategyManager::tryAll(Scanner &scanner) {

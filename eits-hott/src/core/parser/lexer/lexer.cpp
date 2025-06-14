@@ -28,6 +28,19 @@ Token Lexer::nextToken() {
 	int startLine = scanner.getLine();
 	int startCol = scanner.getColumn();
 
+	// single-chracter symbols
+	char32_t c = scanner.peek();
+	switch (c) {
+		case U':' : scanner.advance(); return Token(TokenType::COLON								,	U":", startLine, startCol);
+		case U',' : scanner.advance(); return Token(TokenType::COMMA								, U",", startLine, startCol);
+		case U'(' : scanner.advance(); return Token(TokenType::LPAREN								, U"(", startLine, startCol);
+		case U')' : scanner.advance(); return Token(TokenType::RPAREN								, U")", startLine, startCol);
+		case U'→' : scanner.advance(); return Token(TokenType::ARROW								, U"→", startLine, startCol);
+		case U'∀' : scanner.advance(); return Token(TokenType::FORALL								, U"∀", startLine, startCol);
+		case U'ℕ' : scanner.advance(); return Token(TokenType::NATURAL_NUMBER_TYPE	, U"ℕ", startLine, startCol);
+	}
+
+	// DFA
 	auto result = strategies.tryAll(scanner);
 	if (result.has_value()) {
 		auto [type, lexeme] = result.value();
@@ -43,7 +56,7 @@ Token Lexer::nextToken() {
 		return Token(type, lexeme, startLine, startCol);
 	}
 
-	char32_t c = scanner.advance();
+	c = scanner.advance();
 	return Token(TokenType::INVALID_TOKEN, std::u32string{c}, startLine, startCol);
 }
 
